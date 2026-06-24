@@ -4,7 +4,14 @@
 
 ---
 
-## 📋 Workflow de Desenvolvimento
+## 📋 Workflow de Desenvolvimento (Spec-First)
+
+Nós adotamos a filosofia **Spec-First** + **Brain Sync**. Nenhuma linha de código deve ser escrita antes da especificação existir no Obsidian Wiki.
+
+### O Ciclo de Vida da Feature
+1. **Spec Phase:** Abra a pasta `projects/commet.baby/` no Obsidian e crie/atualize o arquivo `.md` detalhando o que será feito (plano de implementação).
+2. **Code Phase:** Crie a branch seguindo o padrão, implemente o código e faça commits semânticos.
+3. **Brain Sync:** Após a conclusão, a documentação e os requisitos no Obsidian (o Brain) devem refletir as decisões finais tomadas durante o código. A Spec deixa de ser um "plano" e vira "documentação da realidade".
 
 ### Git Flow
 
@@ -141,23 +148,34 @@ pnpm --filter api test:int    # integration tests
 - Utils: 90%
 - Components: 60%
 
-## 🔧 Setup Local
+## 🔧 Setup Local (Onboarding)
 
-```bash
-# 1. Clone
+Nós automatizamos o setup para que você não precise instalar as coisas na mão. Temos um script que instala o **pnpm**, as dependências do projeto e o **Obsidian** na sua máquina.
+
+### No Windows (PowerShell)
+Abra o PowerShell como Administrador e rode:
+```powershell
+# 1. Clone o repositório
 git clone https://github.com/commet-pro/commet.baby.git
 cd commet.baby
 
-# 2. Instale dependências
-pnpm install
-
-# 3. Configure .env
-cp .env.example .env.local
-
-# 4. Setup database
-pnpm --filter database db:push
-pnpm --filter database db:seed
-
-# 5. Rode o dev server
-pnpm dev
+# 2. Rode o script de setup (ele instalará o Obsidian via winget, se necessário)
+.\scripts\setup-dev.ps1
 ```
+
+### No Mac/Linux (Terminal)
+```bash
+# 1. Clone o repositório
+git clone https://github.com/commet-pro/commet.baby.git
+cd commet.baby
+
+# 2. Rode o script de setup (ele instalará o Obsidian via Homebrew/Snap)
+chmod +x scripts/setup-dev.sh
+./scripts/setup-dev.sh
+```
+
+**Próximos passos após rodar o script:**
+1. Configure o `.env` gerado localmente.
+2. Inicie o banco de dados (`pnpm --filter database db:push` / `db:seed`).
+3. Rode `pnpm dev` para iniciar o projeto.
+4. O Obsidian abrirá automaticamente com o vault do projeto, leia o `Passo_0_Implementacao.md`!
