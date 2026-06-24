@@ -67,8 +67,8 @@ pnpm dev
 
 ## 👥 Time
 
-- **Frontend + Full-Stack** — [Seu nome]
-- **Backend** — [Nome do amigo]
+- **Frontend + Full-Stack** — Rafael
+- **Backend** — Gustavo 
 
 ## 📄 Licença
 
