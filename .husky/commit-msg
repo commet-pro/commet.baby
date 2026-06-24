@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# =============================================================
+# COMMIT-MSG HOOK — Commet Baby
+# =============================================================
+# Este hook valida a mensagem de commit usando commitlint.
+# A mensagem DEVE seguir Conventional Commits:
+#
+#   <type>(<scope>): <description>
+#
+# Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+# Scopes: auth, content, billing, profile, analytics, admin, shared, db, web, api, ui, config
+#
+# Exemplos válidos:
+#   feat(auth): implement login with google
+#   fix(billing): fix stripe webhook handler
+#   docs(api): update endpoint documentation
+#   chore(deps): update dependencies
+# =============================================================
+
+npx --no-install commitlint --edit "$1"

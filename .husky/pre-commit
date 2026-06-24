@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+# =============================================================
+# PRE-COMMIT HOOK — Commet Baby
+# =============================================================
+# Este hook roda ANTES de cada commit e garante:
+#   1. Lint-staged: formata e linta apenas arquivos staged
+#   2. Bloqueia commits diretos em main/develop
+# =============================================================
+
+# Bloquear commits diretos em branches protegidas
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "develop" ]; then
+  echo ""
+  echo "🚫 BLOQUEADO: Commits diretos em '$BRANCH' não são permitidos!"
+  echo ""
+  echo "   Use o fluxo correto:"
+  echo "   1. Crie uma branch:  git checkout -b feature/<modulo>-<descricao>"
+  echo "   2. Faça seus commits na branch"
+  echo "   3. Abra um Pull Request para '$BRANCH'"
+  echo ""
+  exit 1
+fi
+
+# Rodar lint-staged (formata + linta arquivos staged)
+npx lint-staged

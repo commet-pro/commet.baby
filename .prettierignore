@@ -1,0 +1,23 @@
+# Ignore build outputs
+dist/
+build/
+.next/
+out/
+
+# Ignore dependencies
+node_modules/
+
+# Ignore generated files
+*.generated.*
+coverage/
+
+# Ignore non-formattable files
+*.min.js
+*.min.css
+pnpm-lock.yaml
+
+# Ignore Obsidian vault (has its own formatting)
+.obsidian/
+
+# Ignore scripts
+scripts/
