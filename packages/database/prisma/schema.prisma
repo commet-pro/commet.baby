@@ -1,0 +1,231 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Language {
+  PT_BR
+  EN
+}
+
+enum AgeGroup {
+  NEWBORN_12M
+  TODDLER_1_2Y
+  PRESCHOOL_2_3Y
+}
+
+enum ContentCategory {
+  STORY
+  MUSIC
+  LULLABY
+  SENSORY
+  ROUTINE
+  LEARNING
+  NATURE
+}
+
+enum SubscriptionPlan {
+  COMETA
+  ESTRELA
+  GALAXIA
+}
+
+enum PlayMode {
+  VIDEO
+  AUDIO
+}
+
+model User {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  passwordHash String
+  name         String
+  avatarUrl    String?
+  role         Role           @default(USER)
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+  
+  sessions      Session[]
+  babyProfiles  BabyProfile[]
+  subscriptions Subscription[]
+
+  @@map("users")
+}
+
+model Session {
+  id           String    @id @default(uuid())
+  userId       String    @map("user_id")
+  token        String    @unique
+  refreshToken String    @unique @map("refresh_token")
+  expiresAt    DateTime  @map("expires_at")
+  revokedAt    DateTime? @map("revoked_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model BabyProfile {
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  name         String
+  birthDate    DateTime @map("birth_date")
+  avatarId     String   @map("avatar_id")
+  languagePref Language @default(PT_BR) @map("language_pref")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  user                  User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  watchHistories        WatchHistory[]
+  learningGoalProgresses LearningGoalProgress[]
+
+  @@map("baby_profiles")
+}
+
+model Subscription {
+  id                   String           @id @default(uuid())
+  userId               String           @map("user_id")
+  stripeCustomerId     String           @map("stripe_customer_id")
+  stripeSubscriptionId String?          @unique @map("stripe_subscription_id")
+  plan                 SubscriptionPlan @map("plan")
+  status               String           @map("status") // active, trialing, canceled, past_due, etc.
+  priceId              String           @map("price_id")
+  hasBilingualAddon    Boolean          @default(false) @map("has_bilingual_addon")
+  currentPeriodStart   DateTime         @map("current_period_start")
+  currentPeriodEnd     DateTime         @map("current_period_end")
+  createdAt            DateTime         @default(now()) @map("created_at")
+  updatedAt            DateTime         @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
+
+model Content {
+  id            String          @id @default(uuid())
+  slug          String          @unique
+  titlePt       String          @map("title_pt")
+  titleEn       String          @map("title_en")
+  descriptionPt String          @map("description_pt")
+  descriptionEn String          @map("description_en")
+  category      ContentCategory @map("category")
+  ageGroup      AgeGroup        @map("age_group")
+  youtubeIdPt   String?         @map("youtube_id_pt")
+  youtubeIdEn   String?         @map("youtube_id_en")
+  audioUrlPt    String?         @map("audio_url_pt")
+  audioUrlEn    String?         @map("audio_url_en")
+  thumbnailUrl  String?         @map("thumbnail_url")
+  duration      Int             @map("duration") // Em segundos
+  isFeatured    Boolean         @default(false) @map("is_featured")
+  status        String          @default("DRAFT") @map("status") // DRAFT, PUBLISHED, ARCHIVED
+  sortOrder     Int             @default(0) @map("sort_order")
+  createdAt     DateTime        @default(now()) @map("created_at")
+  updatedAt     DateTime        @updatedAt @map("updated_at")
+
+  watchHistories        WatchHistory[]
+  contentLearningGoals  ContentLearningGoal[]
+  playlistItems         PlaylistItem[]
+
+  @@map("contents")
+}
+
+model LearningGoal {
+  id            String   @id @default(uuid())
+  code          String   @unique // Ex: LG-01
+  titlePt       String   @map("title_pt")
+  titleEn       String   @map("title_en")
+  descriptionPt String   @map("description_pt")
+  descriptionEn String   @map("description_en")
+  ageGroup      AgeGroup @map("age_group")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  contentLearningGoals   ContentLearningGoal[]
+  learningGoalProgresses LearningGoalProgress[]
+
+  @@map("learning_goals")
+}
+
+model ContentLearningGoal {
+  contentId      String @map("content_id")
+  learningGoalId String @map("learning_goal_id")
+
+  content      Content      @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  learningGoal LearningGoal @relation(fields: [learningGoalId], references: [id], onDelete: Cascade)
+
+  @@id([contentId, learningGoalId])
+  @@map("content_learning_goals")
+}
+
+model LearningGoalProgress {
+  id             String   @id @default(uuid())
+  profileId      String   @map("profile_id")
+  learningGoalId String   @map("learning_goal_id")
+  status         String   @default("IN_PROGRESS") @map("status") // IN_PROGRESS, COMPLETED
+  completedAt    DateTime? @map("completed_at")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  profile      BabyProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  learningGoal LearningGoal @relation(fields: [learningGoalId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, learningGoalId])
+  @@map("learning_goal_progresses")
+}
+
+model WatchHistory {
+  id             String   @id @default(uuid())
+  profileId      String   @map("profile_id")
+  contentId      String   @map("content_id")
+  watchedSeconds Int      @map("watched_seconds")
+  completed      Boolean  @default(false)
+  language       Language @map("language")
+  mode           PlayMode @map("play_mode")
+  watchedAt      DateTime @default(now()) @map("watched_at")
+
+  profile BabyProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  content Content     @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@map("watch_histories")
+}
+
+model Playlist {
+  id            String   @id @default(uuid())
+  slug          String   @unique
+  titlePt       String   @map("title_pt")
+  titleEn       String   @map("title_en")
+  descriptionPt String   @map("description_pt")
+  descriptionEn String   @map("description_en")
+  type          String   @default("CURATED") @map("type") // CURATED, ROUTINE, THEMATIC
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  playlistItems PlaylistItem[]
+
+  @@map("playlists")
+}
+
+model PlaylistItem {
+  id         String   @id @default(uuid())
+  playlistId String   @map("playlist_id")
+  contentId  String   @map("content_id")
+  position   Int      @map("position")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  playlist Playlist @relation(fields: [playlistId], references: [id], onDelete: Cascade)
+  content  Content  @relation(fields: [contentId], references: [id], onDelete: Cascade)
+
+  @@unique([playlistId, contentId])
+  @@map("playlist_items")
+}

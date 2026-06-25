@@ -33,7 +33,7 @@ Commet Baby é uma plataforma de streaming educacional que transforma tempo de t
 commet.baby/
 ├── apps/
 │   ├── web/          # Frontend (Next.js)
-│   └── api/          # Backend API
+│   └── api/          # Backend API (Node.js + Fastify)
 ├── packages/
 │   ├── shared/       # Tipos e constantes compartilhados
 │   └── database/     # Prisma schema & migrations
