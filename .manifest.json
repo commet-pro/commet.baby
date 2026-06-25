@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "vault": "commet.baby",
+  "updated": "2026-06-25",
+  "last_commit_synced": "11c9340",
+  "sources": [
+    {
+      "id": "commet-baby-design-system",
+      "type": "design-bundle",
+      "path": "Commet Baby Design System.zip (user-supplied)",
+      "ingestedAt": "2026-06-25",
+      "pages": [
+        "concepts/Design_System.md",
+        "references/Design_Tokens.md",
+        "references/UI_Components.md"
+      ]
+    },
+    {
+      "id": "frontend-apps-web",
+      "type": "codebase",
+      "path": "apps/web",
+      "ingestedAt": "2026-06-25",
+      "pages": ["concepts/Frontend_Web.md"]
+    },
+    {
+      "id": "contributing-workflow",
+      "type": "doc",
+      "path": "docs/CONTRIBUTING.md",
+      "ingestedAt": "2026-06-25",
+      "pages": ["concepts/Fluxo_de_Trabalho.md"]
+    },
+    {
+      "id": "passo-0-implementacao",
+      "type": "spec",
+      "path": "projects/commet.baby/Passo_0_Implementacao.md",
+      "ingestedAt": "2026-06-24",
+      "pages": ["projects/commet.baby/Passo_0_Implementacao.md"]
+    }
+  ]
+}

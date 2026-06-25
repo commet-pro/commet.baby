@@ -1,3 +1,10 @@
+---
+title: Contribuindo — Commet Baby
+category: doc
+summary: Fluxo de contribuição — Git Flow, Conventional Commits, PR e Spec-First / Brain Sync / Issue Sync.
+updated: 2026-06-25
+---
+
 # 🤝 Contribuindo — Commet Baby
 
 > Guia de contribuição para o time de desenvolvimento.

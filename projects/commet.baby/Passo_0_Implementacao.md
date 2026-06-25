@@ -1,7 +1,13 @@
 ---
-title: Passo 0 - Implementa��o Inicial
-tags: [planejamento, arquitetura, negocio, commet.baby]
+title: Passo 0 — Implementação Inicial
+category: project
+tags: [planejamento, arquitetura, negocio]
+summary: Idealização, modelo de negócio e requisitos do MVP — o spec/plano fundacional do projeto.
+sources: ['Passo 0 (idealização)']
+created: 2026-06-24
+updated: 2026-06-24
 ---
+
 # 🍼 Commet Baby — Idealização, Modelo de Negócio & Requisitos
 
 > Plataforma de entretenimento e educação infantil para bebês de 0 a 3 anos, com conteúdo bilíngue e metas de aprendizagem.
@@ -18,14 +24,14 @@ Commet Baby é uma plataforma de streaming educacional para bebês de RN até 3 
 
 ### 1.2 Diferencial Competitivo
 
-| Aspecto | Commet Baby | Concorrentes |
-|---|---|---|
-| **Faixa etária** | 0-3 anos (inclui RN) | Maioria começa em 2+ anos |
-| **Bilíngue como add-on** | PT-BR ↔ EN modular | Fixo ou inexistente |
-| **Metas de aprendizagem** | Rastreamento por marco de desenvolvimento | Conteúdo genérico |
-| **Dual revenue** | Assinatura + YouTube Ads | Apenas um modelo |
-| **Modo áudio** | Reprodução em background | Raro nessa faixa |
-| **Direcionamento científico** | Conteúdo validado por faixa etária | Curadoria genérica |
+| Aspecto                       | Commet Baby                               | Concorrentes              |
+| ----------------------------- | ----------------------------------------- | ------------------------- |
+| **Faixa etária**              | 0-3 anos (inclui RN)                      | Maioria começa em 2+ anos |
+| **Bilíngue como add-on**      | PT-BR ↔ EN modular                        | Fixo ou inexistente       |
+| **Metas de aprendizagem**     | Rastreamento por marco de desenvolvimento | Conteúdo genérico         |
+| **Dual revenue**              | Assinatura + YouTube Ads                  | Apenas um modelo          |
+| **Modo áudio**                | Reprodução em background                  | Raro nessa faixa          |
+| **Direcionamento científico** | Conteúdo validado por faixa etária        | Curadoria genérica        |
 
 ### 1.3 Análise de Mercado
 
@@ -59,7 +65,7 @@ flowchart LR
     A["💰 Receita"] --> B["Assinaturas<br/>~80% da receita"]
     A --> C["YouTube Ads<br/>~15% da receita"]
     A --> D["Parcerias/Afiliados<br/>~5% da receita"]
-    
+
     B --> B1["Plano Cometa"]
     B --> B2["Plano Estrela"]
     B --> B3["Plano Galáxia"]
@@ -71,12 +77,12 @@ flowchart LR
 > [!IMPORTANT]
 > A validação do modelo de negócio é por faixa etária. Cada plano dá acesso ao conteúdo da faixa correspondente. O plano Galáxia é o "all-access" para todas as faixas.
 
-| Plano | Faixa Etária | Mensal (BRL) | Anual (BRL) | O que inclui |
-|---|---|---|---|---|
-| 🌟 **Cometa** | 0–12 meses | R$ 19,90 | R$ 189,90 (~20% off) | Conteúdo 0-12m, 1 perfil, modo áudio, PT-BR |
-| ⭐ **Estrela** | 1–2 anos | R$ 24,90 | R$ 239,90 (~20% off) | Conteúdo 1-2a, 1 perfil, modo áudio, PT-BR |
-| 🌌 **Galáxia** | 0–3 anos | R$ 34,90 | R$ 329,90 (~21% off) | Todo conteúdo, 3 perfis, modo áudio, PT-BR |
-| 🌍 **Add-on Bilíngue** | Qualquer plano | +R$ 14,90/mês | +R$ 139,90/ano | Conteúdo em EN, toggle de idioma, pronúncia nativa |
+| Plano                  | Faixa Etária   | Mensal (BRL)  | Anual (BRL)          | O que inclui                                       |
+| ---------------------- | -------------- | ------------- | -------------------- | -------------------------------------------------- |
+| 🌟 **Cometa**          | 0–12 meses     | R$ 19,90      | R$ 189,90 (~20% off) | Conteúdo 0-12m, 1 perfil, modo áudio, PT-BR        |
+| ⭐ **Estrela**         | 1–2 anos       | R$ 24,90      | R$ 239,90 (~20% off) | Conteúdo 1-2a, 1 perfil, modo áudio, PT-BR         |
+| 🌌 **Galáxia**         | 0–3 anos       | R$ 34,90      | R$ 329,90 (~21% off) | Todo conteúdo, 3 perfis, modo áudio, PT-BR         |
+| 🌍 **Add-on Bilíngue** | Qualquer plano | +R$ 14,90/mês | +R$ 139,90/ano       | Conteúdo em EN, toggle de idioma, pronúncia nativa |
 
 ### 2.3 Funil de Conversão
 
@@ -94,14 +100,14 @@ flowchart TD
 
 ### 2.4 Métricas de Negócio (KPIs)
 
-| Métrica | Target Mês 1-3 | Target Mês 6 | Target Mês 12 |
-|---|---|---|---|
-| **Usuários registrados** | 500 | 3.000 | 15.000 |
-| **Taxa de conversão trial → pago** | 8% | 12% | 18% |
-| **Churn mensal** | 15% | 10% | 7% |
-| **ARPU** (Receita média por usuário) | R$ 22 | R$ 26 | R$ 30 |
-| **MRR** (Receita recorrente mensal) | R$ 880 | R$ 9.360 | R$ 81.000 |
-| **LTV** (Lifetime Value) | R$ 146 | R$ 260 | R$ 428 |
+| Métrica                              | Target Mês 1-3 | Target Mês 6 | Target Mês 12 |
+| ------------------------------------ | -------------- | ------------ | ------------- |
+| **Usuários registrados**             | 500            | 3.000        | 15.000        |
+| **Taxa de conversão trial → pago**   | 8%             | 12%          | 18%           |
+| **Churn mensal**                     | 15%            | 10%          | 7%            |
+| **ARPU** (Receita média por usuário) | R$ 22          | R$ 26        | R$ 30         |
+| **MRR** (Receita recorrente mensal)  | R$ 880         | R$ 9.360     | R$ 81.000     |
+| **LTV** (Lifetime Value)             | R$ 146         | R$ 260       | R$ 428        |
 
 ---
 
@@ -110,18 +116,21 @@ flowchart TD
 ### 3.1 Personas
 
 #### Persona 1: Mariana (Mãe de Primeira Viagem)
+
 - **Idade:** 28 anos | **Bebê:** 4 meses
 - **Dor:** "Não sei o que é conteúdo seguro para o meu bebê"
 - **Desejo:** Conteúdo curado, curto, que estimule sem superestimular
 - **Plano ideal:** Cometa (0-12m) → upgrade para Estrela quando crescer
 
 #### Persona 2: Rafael (Pai Tech-Savvy)
+
 - **Idade:** 33 anos | **Bebê:** 18 meses
 - **Dor:** "Quero que meu filho aprenda inglês desde cedo"
 - **Desejo:** Conteúdo bilíngue com pronúncia nativa
 - **Plano ideal:** Estrela (1-2a) + Add-on Bilíngue
 
 #### Persona 3: Avó Dona Teresa
+
 - **Idade:** 62 anos | **Neto:** 2 anos
 - **Dor:** "Preciso de algo seguro pra entreter enquanto cuido dele"
 - **Desejo:** Interface simples, conteúdo seguro, sem anúncios invasivos
@@ -141,14 +150,14 @@ flowchart TD
         A3["Reset de senha"]
         A4["Gestão de sessão (JWT)"]
     end
-    
+
     subgraph "👶 Profile Module"
         B1["CRUD perfil do bebê"]
         B2["Data de nascimento → faixa etária auto"]
         B3["Preferência de idioma"]
         B4["Progresso/marcos"]
     end
-    
+
     subgraph "📚 Content Module"
         C1["Catálogo de histórias"]
         C2["YouTube Embed Player"]
@@ -157,7 +166,7 @@ flowchart TD
         C5["Sistema de metas de aprendizagem"]
         C6["Conteúdo desbloqueado por plano"]
     end
-    
+
     subgraph "💳 Billing Module"
         D1["Stripe Checkout"]
         D2["Gestão de assinatura"]
@@ -165,14 +174,14 @@ flowchart TD
         D4["Webhook handlers"]
         D5["Trial management"]
     end
-    
+
     subgraph "📊 Analytics Module"
         E1["Tempo de uso"]
         E2["Conteúdos assistidos"]
         E3["Progresso nas metas"]
         E4["Dashboard parental"]
     end
-    
+
     subgraph "🔧 Admin Module"
         F1["CRUD conteúdo"]
         F2["Gestão de usuários"]
@@ -185,82 +194,82 @@ flowchart TD
 
 #### 🔐 RF-AUTH: Autenticação & Autorização
 
-| ID | Requisito | Prioridade | Sprint |
-|---|---|---|---|
-| RF-AUTH-01 | Registro com email + senha | P0 | Sprint 1 |
-| RF-AUTH-02 | Login com email + senha | P0 | Sprint 1 |
-| RF-AUTH-03 | Login social (Google, Apple) | P1 | Sprint 2 |
-| RF-AUTH-04 | Recuperação de senha por email | P0 | Sprint 1 |
-| RF-AUTH-05 | Refresh token com rotação | P0 | Sprint 1 |
-| RF-AUTH-06 | Logout com invalidação de token | P0 | Sprint 1 |
-| RF-AUTH-07 | Rate limiting em endpoints auth | P0 | Sprint 1 |
-| RF-AUTH-08 | Verificação de email | P1 | Sprint 2 |
+| ID         | Requisito                       | Prioridade | Sprint   |
+| ---------- | ------------------------------- | ---------- | -------- |
+| RF-AUTH-01 | Registro com email + senha      | P0         | Sprint 1 |
+| RF-AUTH-02 | Login com email + senha         | P0         | Sprint 1 |
+| RF-AUTH-03 | Login social (Google, Apple)    | P1         | Sprint 2 |
+| RF-AUTH-04 | Recuperação de senha por email  | P0         | Sprint 1 |
+| RF-AUTH-05 | Refresh token com rotação       | P0         | Sprint 1 |
+| RF-AUTH-06 | Logout com invalidação de token | P0         | Sprint 1 |
+| RF-AUTH-07 | Rate limiting em endpoints auth | P0         | Sprint 1 |
+| RF-AUTH-08 | Verificação de email            | P1         | Sprint 2 |
 
 #### 👶 RF-PROFILE: Perfis de Bebê
 
-| ID | Requisito | Prioridade | Sprint |
-|---|---|---|---|
-| RF-PROF-01 | Criar perfil do bebê (nome, data nasc., avatar) | P0 | Sprint 1 |
-| RF-PROF-02 | Calcular faixa etária automaticamente pela data de nascimento | P0 | Sprint 1 |
-| RF-PROF-03 | Suportar múltiplos perfis (conforme plano) | P0 | Sprint 2 |
-| RF-PROF-04 | Definir idioma preferencial por perfil | P1 | Sprint 2 |
-| RF-PROF-05 | Avatares pré-definidos temáticos | P2 | Sprint 3 |
-| RF-PROF-06 | Transição automática de faixa etária (notificar pai) | P1 | Sprint 3 |
+| ID         | Requisito                                                     | Prioridade | Sprint   |
+| ---------- | ------------------------------------------------------------- | ---------- | -------- |
+| RF-PROF-01 | Criar perfil do bebê (nome, data nasc., avatar)               | P0         | Sprint 1 |
+| RF-PROF-02 | Calcular faixa etária automaticamente pela data de nascimento | P0         | Sprint 1 |
+| RF-PROF-03 | Suportar múltiplos perfis (conforme plano)                    | P0         | Sprint 2 |
+| RF-PROF-04 | Definir idioma preferencial por perfil                        | P1         | Sprint 2 |
+| RF-PROF-05 | Avatares pré-definidos temáticos                              | P2         | Sprint 3 |
+| RF-PROF-06 | Transição automática de faixa etária (notificar pai)          | P1         | Sprint 3 |
 
 #### 📚 RF-CONTENT: Conteúdo & Player
 
-| ID | Requisito | Prioridade | Sprint |
-|---|---|---|---|
-| RF-CONT-01 | Listagem de histórias na Home (cards com thumbnail, título, duração) | P0 | Sprint 1 |
-| RF-CONT-02 | Filtro de conteúdo por faixa etária | P0 | Sprint 1 |
-| RF-CONT-03 | YouTube embedded player (privacy-enhanced mode) | P0 | Sprint 1 |
-| RF-CONT-04 | Modo áudio (reprodução de áudio em background) | P0 | Sprint 2 |
-| RF-CONT-05 | Toggle de idioma (PT-BR ↔ EN) no conteúdo bilíngue | P1 | Sprint 2 |
-| RF-CONT-06 | Categorias/temas (ex: cores, números, animais, rotina) | P1 | Sprint 2 |
-| RF-CONT-07 | Sistema de metas de aprendizagem com checklist visual | P1 | Sprint 3 |
-| RF-CONT-08 | "Continue assistindo" (histórico) | P1 | Sprint 2 |
-| RF-CONT-09 | Recomendação por faixa + progresso | P2 | Sprint 3 |
-| RF-CONT-10 | Playlists curadas por tema/rotina (hora de dormir, banho) | P2 | Sprint 3 |
-| RF-CONT-11 | Conteúdo bloqueado com overlay de upgrade | P0 | Sprint 2 |
-| RF-CONT-12 | Controle de conteúdo por status de assinatura | P0 | Sprint 2 |
+| ID         | Requisito                                                            | Prioridade | Sprint   |
+| ---------- | -------------------------------------------------------------------- | ---------- | -------- |
+| RF-CONT-01 | Listagem de histórias na Home (cards com thumbnail, título, duração) | P0         | Sprint 1 |
+| RF-CONT-02 | Filtro de conteúdo por faixa etária                                  | P0         | Sprint 1 |
+| RF-CONT-03 | YouTube embedded player (privacy-enhanced mode)                      | P0         | Sprint 1 |
+| RF-CONT-04 | Modo áudio (reprodução de áudio em background)                       | P0         | Sprint 2 |
+| RF-CONT-05 | Toggle de idioma (PT-BR ↔ EN) no conteúdo bilíngue                   | P1         | Sprint 2 |
+| RF-CONT-06 | Categorias/temas (ex: cores, números, animais, rotina)               | P1         | Sprint 2 |
+| RF-CONT-07 | Sistema de metas de aprendizagem com checklist visual                | P1         | Sprint 3 |
+| RF-CONT-08 | "Continue assistindo" (histórico)                                    | P1         | Sprint 2 |
+| RF-CONT-09 | Recomendação por faixa + progresso                                   | P2         | Sprint 3 |
+| RF-CONT-10 | Playlists curadas por tema/rotina (hora de dormir, banho)            | P2         | Sprint 3 |
+| RF-CONT-11 | Conteúdo bloqueado com overlay de upgrade                            | P0         | Sprint 2 |
+| RF-CONT-12 | Controle de conteúdo por status de assinatura                        | P0         | Sprint 2 |
 
 #### 💳 RF-BILLING: Checkout & Assinatura (Stripe)
 
-| ID | Requisito | Prioridade | Sprint |
-|---|---|---|---|
-| RF-BILL-01 | Página de planos com comparação | P0 | Sprint 2 |
-| RF-BILL-02 | Stripe Checkout Session (hosted) para assinatura | P0 | Sprint 2 |
-| RF-BILL-03 | Suporte a PIX, Boleto e Cartão de Crédito | P0 | Sprint 2 |
-| RF-BILL-04 | Período trial de 7 dias | P0 | Sprint 2 |
-| RF-BILL-05 | Webhook handler: `checkout.session.completed` | P0 | Sprint 2 |
-| RF-BILL-06 | Webhook handler: `invoice.paid` | P0 | Sprint 2 |
-| RF-BILL-07 | Webhook handler: `invoice.payment_failed` | P0 | Sprint 2 |
-| RF-BILL-08 | Webhook handler: `customer.subscription.updated` | P0 | Sprint 2 |
-| RF-BILL-09 | Webhook handler: `customer.subscription.deleted` | P0 | Sprint 2 |
-| RF-BILL-10 | Stripe Customer Portal (self-service) | P1 | Sprint 3 |
-| RF-BILL-11 | Add-on bilíngue como item adicional na subscription | P1 | Sprint 3 |
-| RF-BILL-12 | Cupons e promoções via Stripe Coupons | P2 | Sprint 4 |
-| RF-BILL-13 | Gift subscriptions | P2 | Sprint 4 |
+| ID         | Requisito                                           | Prioridade | Sprint   |
+| ---------- | --------------------------------------------------- | ---------- | -------- |
+| RF-BILL-01 | Página de planos com comparação                     | P0         | Sprint 2 |
+| RF-BILL-02 | Stripe Checkout Session (hosted) para assinatura    | P0         | Sprint 2 |
+| RF-BILL-03 | Suporte a PIX, Boleto e Cartão de Crédito           | P0         | Sprint 2 |
+| RF-BILL-04 | Período trial de 7 dias                             | P0         | Sprint 2 |
+| RF-BILL-05 | Webhook handler: `checkout.session.completed`       | P0         | Sprint 2 |
+| RF-BILL-06 | Webhook handler: `invoice.paid`                     | P0         | Sprint 2 |
+| RF-BILL-07 | Webhook handler: `invoice.payment_failed`           | P0         | Sprint 2 |
+| RF-BILL-08 | Webhook handler: `customer.subscription.updated`    | P0         | Sprint 2 |
+| RF-BILL-09 | Webhook handler: `customer.subscription.deleted`    | P0         | Sprint 2 |
+| RF-BILL-10 | Stripe Customer Portal (self-service)               | P1         | Sprint 3 |
+| RF-BILL-11 | Add-on bilíngue como item adicional na subscription | P1         | Sprint 3 |
+| RF-BILL-12 | Cupons e promoções via Stripe Coupons               | P2         | Sprint 4 |
+| RF-BILL-13 | Gift subscriptions                                  | P2         | Sprint 4 |
 
 #### 📊 RF-ANALYTICS: Dashboard Parental
 
-| ID | Requisito | Prioridade | Sprint |
-|---|---|---|---|
-| RF-ANAL-01 | Tempo total de uso diário/semanal | P1 | Sprint 3 |
-| RF-ANAL-02 | Histórias assistidas por período | P1 | Sprint 3 |
-| RF-ANAL-03 | Progresso nas metas de aprendizagem (visual) | P1 | Sprint 3 |
-| RF-ANAL-04 | Timer parental (limite de tempo de tela) | P2 | Sprint 4 |
+| ID         | Requisito                                    | Prioridade | Sprint   |
+| ---------- | -------------------------------------------- | ---------- | -------- |
+| RF-ANAL-01 | Tempo total de uso diário/semanal            | P1         | Sprint 3 |
+| RF-ANAL-02 | Histórias assistidas por período             | P1         | Sprint 3 |
+| RF-ANAL-03 | Progresso nas metas de aprendizagem (visual) | P1         | Sprint 3 |
+| RF-ANAL-04 | Timer parental (limite de tempo de tela)     | P2         | Sprint 4 |
 
 #### 🔧 RF-ADMIN: Painel Administrativo
 
-| ID | Requisito | Prioridade | Sprint |
-|---|---|---|---|
-| RF-ADM-01 | CRUD de conteúdo (histórias, vídeos, áudios) | P0 | Sprint 2 |
-| RF-ADM-02 | Upload de thumbnail e arquivo de áudio | P0 | Sprint 2 |
-| RF-ADM-03 | Vincular YouTube Video ID ao conteúdo | P0 | Sprint 2 |
-| RF-ADM-04 | Definir metas de aprendizagem por conteúdo | P1 | Sprint 3 |
-| RF-ADM-05 | Dashboard com métricas de negócio (MRR, churn, MAU) | P2 | Sprint 4 |
-| RF-ADM-06 | Gestão de usuários e assinaturas | P2 | Sprint 4 |
+| ID        | Requisito                                           | Prioridade | Sprint   |
+| --------- | --------------------------------------------------- | ---------- | -------- |
+| RF-ADM-01 | CRUD de conteúdo (histórias, vídeos, áudios)        | P0         | Sprint 2 |
+| RF-ADM-02 | Upload de thumbnail e arquivo de áudio              | P0         | Sprint 2 |
+| RF-ADM-03 | Vincular YouTube Video ID ao conteúdo               | P0         | Sprint 2 |
+| RF-ADM-04 | Definir metas de aprendizagem por conteúdo          | P1         | Sprint 3 |
+| RF-ADM-05 | Dashboard com métricas de negócio (MRR, churn, MAU) | P2         | Sprint 4 |
+| RF-ADM-06 | Gestão de usuários e assinaturas                    | P2         | Sprint 4 |
 
 ---
 
@@ -268,43 +277,43 @@ flowchart TD
 
 ### 5.1 Performance
 
-| ID | Requisito | Target |
-|---|---|---|
-| RNF-PERF-01 | Time to First Contentful Paint (FCP) | < 1.5s |
-| RNF-PERF-02 | Largest Contentful Paint (LCP) | < 2.5s |
-| RNF-PERF-03 | API response time (p95) | < 200ms |
-| RNF-PERF-04 | YouTube embed load time | < 3s |
-| RNF-PERF-05 | Audio stream start | < 1s |
+| ID          | Requisito                            | Target  |
+| ----------- | ------------------------------------ | ------- |
+| RNF-PERF-01 | Time to First Contentful Paint (FCP) | < 1.5s  |
+| RNF-PERF-02 | Largest Contentful Paint (LCP)       | < 2.5s  |
+| RNF-PERF-03 | API response time (p95)              | < 200ms |
+| RNF-PERF-04 | YouTube embed load time              | < 3s    |
+| RNF-PERF-05 | Audio stream start                   | < 1s    |
 
 ### 5.2 Segurança & Compliance
 
-| ID | Requisito | Detalhes |
-|---|---|---|
-| RNF-SEC-01 | LGPD compliance | Termo de uso, política de privacidade, consentimento parental |
-| RNF-SEC-02 | COPPA compliance | Conteúdo "made for kids", sem coleta de dados de menores |
-| RNF-SEC-03 | ECA compliance | Conteúdo adequado à faixa etária por lei brasileira |
-| RNF-SEC-04 | HTTPS everywhere | TLS 1.3 mínimo |
-| RNF-SEC-05 | YouTube privacy mode | Usar `youtube-nocookie.com` nos embeds |
-| RNF-SEC-06 | Dados sensíveis criptografados | Dados do bebê em rest e in transit |
-| RNF-SEC-07 | PCI DSS | Delegado ao Stripe (nunca armazenar dados de cartão) |
+| ID         | Requisito                      | Detalhes                                                      |
+| ---------- | ------------------------------ | ------------------------------------------------------------- |
+| RNF-SEC-01 | LGPD compliance                | Termo de uso, política de privacidade, consentimento parental |
+| RNF-SEC-02 | COPPA compliance               | Conteúdo "made for kids", sem coleta de dados de menores      |
+| RNF-SEC-03 | ECA compliance                 | Conteúdo adequado à faixa etária por lei brasileira           |
+| RNF-SEC-04 | HTTPS everywhere               | TLS 1.3 mínimo                                                |
+| RNF-SEC-05 | YouTube privacy mode           | Usar `youtube-nocookie.com` nos embeds                        |
+| RNF-SEC-06 | Dados sensíveis criptografados | Dados do bebê em rest e in transit                            |
+| RNF-SEC-07 | PCI DSS                        | Delegado ao Stripe (nunca armazenar dados de cartão)          |
 
 ### 5.3 Escalabilidade & Disponibilidade
 
-| ID | Requisito | Target |
-|---|---|---|
-| RNF-SCAL-01 | Uptime | 99.5% |
+| ID          | Requisito                 | Target                                  |
+| ----------- | ------------------------- | --------------------------------------- |
+| RNF-SCAL-01 | Uptime                    | 99.5%                                   |
 | RNF-SCAL-02 | Suportar concurrent users | 1.000 inicialmente, escalar para 10.000 |
-| RNF-SCAL-03 | CDN para assets estáticos | Cloudflare ou similar |
-| RNF-SCAL-04 | Auto-scaling em picos | Infra serverless-ready |
+| RNF-SCAL-03 | CDN para assets estáticos | Cloudflare ou similar                   |
+| RNF-SCAL-04 | Auto-scaling em picos     | Infra serverless-ready                  |
 
 ### 5.4 UX/Acessibilidade
 
-| ID | Requisito | Detalhes |
-|---|---|---|
-| RNF-UX-01 | Mobile-first design | 80%+ do tráfego será mobile |
-| RNF-UX-02 | Touch-friendly | Botões grandes, gestos simples |
-| RNF-UX-03 | Cores seguras para bebês | Paleta suave, sem flashes |
-| RNF-UX-04 | Parental gate | Ação de adulto para sair do player |
+| ID        | Requisito                  | Detalhes                            |
+| --------- | -------------------------- | ----------------------------------- |
+| RNF-UX-01 | Mobile-first design        | 80%+ do tráfego será mobile         |
+| RNF-UX-02 | Touch-friendly             | Botões grandes, gestos simples      |
+| RNF-UX-03 | Cores seguras para bebês   | Paleta suave, sem flashes           |
+| RNF-UX-04 | Parental gate              | Ação de adulto para sair do player  |
 | RNF-UX-05 | Acessibilidade WCAG 2.1 AA | Contraste, screen readers, alt text |
 
 ---
@@ -319,32 +328,32 @@ flowchart TB
         WEB["🌐 Web App<br/>Next.js (App Router)"]
         PWA["📱 PWA<br/>(Progressive Web App)"]
     end
-    
+
     subgraph "API Layer"
         BFF["🔀 BFF<br/>Next.js API Routes"]
         API["⚡ Backend API<br/>Node.js + Fastify/Express"]
     end
-    
+
     subgraph "Services Layer"
         AUTH_SVC["🔐 Auth Service"]
         CONTENT_SVC["📚 Content Service"]
         BILLING_SVC["💳 Billing Service"]
         ANALYTICS_SVC["📊 Analytics Service"]
     end
-    
+
     subgraph "Data Layer"
         DB["🐘 PostgreSQL"]
         CACHE["⚡ Redis"]
         STORAGE["📦 S3/R2<br/>(Audio files)"]
     end
-    
+
     subgraph "External Services"
         STRIPE["💳 Stripe"]
         YT["▶️ YouTube API"]
         EMAIL["📧 Resend/SendGrid"]
         CDN["🌍 Cloudflare CDN"]
     end
-    
+
     WEB --> BFF
     PWA --> BFF
     BFF --> API
@@ -371,34 +380,34 @@ flowchart TB
 
 #### Opção A: Full JavaScript/TypeScript (Recomendada)
 
-| Camada | Tecnologia | Justificativa |
-|---|---|---|
-| **Frontend** | Next.js 14+ (App Router) | SSR para SEO, React, API routes como BFF |
-| **Linguagem** | TypeScript (full-stack) | Tipos compartilhados entre front e back |
-| **Backend** | Node.js + Fastify | Performance, ecosistema JS, low overhead |
-| **Database** | PostgreSQL (Neon ou Supabase) | Relacional, escalável, managed |
-| **ORM** | Prisma | Type-safe, migrations, schema como contrato |
-| **Auth** | Auth.js (NextAuth) ou Clerk | OAuth, JWT, session management |
-| **Cache** | Redis (Upstash) | Sessões, rate limiting, cache de conteúdo |
-| **Storage** | Cloudflare R2 ou AWS S3 | Áudios, thumbnails, assets |
-| **CDN** | Cloudflare | Edge caching, DDoS, SSL |
-| **Hosting FE** | Vercel | Deploy automático, edge functions |
-| **Hosting BE** | Railway ou Render | Node.js hosting, auto-deploy |
-| **Email** | Resend | Transactional emails, boa DX |
-| **Monitoring** | Sentry | Error tracking cross-stack |
-| **Analytics** | PostHog (self-hosted) | LGPD-compliant, open-source |
+| Camada         | Tecnologia                    | Justificativa                               |
+| -------------- | ----------------------------- | ------------------------------------------- |
+| **Frontend**   | Next.js 14+ (App Router)      | SSR para SEO, React, API routes como BFF    |
+| **Linguagem**  | TypeScript (full-stack)       | Tipos compartilhados entre front e back     |
+| **Backend**    | Node.js + Fastify             | Performance, ecosistema JS, low overhead    |
+| **Database**   | PostgreSQL (Neon ou Supabase) | Relacional, escalável, managed              |
+| **ORM**        | Prisma                        | Type-safe, migrations, schema como contrato |
+| **Auth**       | Auth.js (NextAuth) ou Clerk   | OAuth, JWT, session management              |
+| **Cache**      | Redis (Upstash)               | Sessões, rate limiting, cache de conteúdo   |
+| **Storage**    | Cloudflare R2 ou AWS S3       | Áudios, thumbnails, assets                  |
+| **CDN**        | Cloudflare                    | Edge caching, DDoS, SSL                     |
+| **Hosting FE** | Vercel                        | Deploy automático, edge functions           |
+| **Hosting BE** | Railway ou Render             | Node.js hosting, auto-deploy                |
+| **Email**      | Resend                        | Transactional emails, boa DX                |
+| **Monitoring** | Sentry                        | Error tracking cross-stack                  |
+| **Analytics**  | PostHog (self-hosted)         | LGPD-compliant, open-source                 |
 
 **Vantagens:** TypeScript compartilhado = tipos, validações e schemas reutilizados. Um único idioma para toda a equipe.
 
 #### Opção B: Next.js + Python Backend
 
-| Camada | Tecnologia |
-|---|---|
+| Camada       | Tecnologia                            |
+| ------------ | ------------------------------------- |
 | **Frontend** | Next.js 14+ (App Router) + TypeScript |
-| **Backend** | Python + FastAPI |
-| **Database** | PostgreSQL + SQLAlchemy |
-| **Auth** | JWT custom ou Auth.js no BFF |
-| Demais | Mesmas escolhas da Opção A |
+| **Backend**  | Python + FastAPI                      |
+| **Database** | PostgreSQL + SQLAlchemy               |
+| **Auth**     | JWT custom ou Auth.js no BFF          |
+| Demais       | Mesmas escolhas da Opção A            |
 
 **Vantagens:** Se o backend dev prefere Python. FastAPI é performático e bem documentado.
 **Desvantagens:** Perda de tipos compartilhados, necessidade de OpenAPI spec como contrato.
@@ -624,16 +633,16 @@ model User {
   emailVerified     Boolean   @default(false)
   emailVerifiedAt   DateTime?
   stripeCustomerId  String?   @unique
-  
+
   // Relations
   profiles          BabyProfile[]
   subscription      Subscription?
   sessions          Session[]
   watchHistory      WatchHistory[]
-  
+
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
-  
+
   @@map("users")
 }
 
@@ -647,11 +656,11 @@ model Session {
   userId       String
   token        String   @unique
   expiresAt    DateTime
-  
+
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
+
   createdAt    DateTime @default(now())
-  
+
   @@map("sessions")
 }
 
@@ -664,15 +673,15 @@ model BabyProfile {
   birthDate       DateTime
   avatarId        String?     // Pre-defined avatar identifier
   languagePref    Language    @default(PT_BR)
-  
+
   // Relations
   user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   watchHistory    WatchHistory[]
   learningGoals   LearningGoalProgress[]
-  
+
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
-  
+
   @@map("baby_profiles")
 }
 
@@ -690,40 +699,40 @@ model Content {
   description     String
   descriptionEn   String?       // English description
   slug            String        @unique
-  
+
   // Media
   youtubeVideoId  String?       // YouTube video ID for embed
   youtubeVideoIdEn String?      // English version YouTube ID
   audioUrl        String?       // S3/R2 URL for audio file (PT-BR)
   audioUrlEn      String?       // S3/R2 URL for audio file (EN)
   thumbnailUrl    String
-  
+
   // Classification
   ageGroup        AgeGroup
   category        ContentCategory
   tags            String[]      // Flexible tags
   durationSeconds Int           // Content duration
-  
+
   // Access control
   isFree          Boolean       @default(false)
   isBilingual     Boolean       @default(false)
-  
+
   // Ordering
   sortOrder       Int           @default(0)
   featured        Boolean       @default(false)
-  
+
   // Status
   status          ContentStatus @default(DRAFT)
   publishedAt     DateTime?
-  
+
   // Relations
   learningGoals   ContentLearningGoal[]
   watchHistory    WatchHistory[]
   playlistItems   PlaylistItem[]
-  
+
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
-  
+
   @@index([ageGroup, status])
   @@index([category])
   @@map("contents")
@@ -763,13 +772,13 @@ model LearningGoal {
   category        GoalCategory
   icon            String?   // Icon identifier
   sortOrder       Int       @default(0)
-  
+
   // Relations
   contents        ContentLearningGoal[]
   progress        LearningGoalProgress[]
-  
+
   createdAt       DateTime  @default(now())
-  
+
   @@map("learning_goals")
 }
 
@@ -784,10 +793,10 @@ enum GoalCategory {
 model ContentLearningGoal {
   contentId       String
   learningGoalId  String
-  
+
   content         Content       @relation(fields: [contentId], references: [id], onDelete: Cascade)
   learningGoal    LearningGoal  @relation(fields: [learningGoalId], references: [id], onDelete: Cascade)
-  
+
   @@id([contentId, learningGoalId])
   @@map("content_learning_goals")
 }
@@ -798,12 +807,12 @@ model LearningGoalProgress {
   learningGoalId  String
   progress        Int          @default(0) // 0-100
   completedAt     DateTime?
-  
+
   profile         BabyProfile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
   learningGoal    LearningGoal @relation(fields: [learningGoalId], references: [id], onDelete: Cascade)
-  
+
   updatedAt       DateTime     @updatedAt
-  
+
   @@unique([profileId, learningGoalId])
   @@map("learning_goal_progress")
 }
@@ -820,12 +829,12 @@ model Playlist {
   ageGroup        AgeGroup?
   type            PlaylistType
   sortOrder       Int            @default(0)
-  
+
   items           PlaylistItem[]
-  
+
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
-  
+
   @@map("playlists")
 }
 
@@ -840,10 +849,10 @@ model PlaylistItem {
   playlistId      String
   contentId       String
   sortOrder       Int       @default(0)
-  
+
   playlist        Playlist  @relation(fields: [playlistId], references: [id], onDelete: Cascade)
   content         Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
-  
+
   @@unique([playlistId, contentId])
   @@map("playlist_items")
 }
@@ -859,13 +868,13 @@ model WatchHistory {
   completed       Boolean      @default(false)
   language        Language     @default(PT_BR)
   mode            PlayMode     @default(VIDEO)
-  
+
   user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   profile         BabyProfile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
   content         Content      @relation(fields: [contentId], references: [id], onDelete: Cascade)
-  
+
   createdAt       DateTime     @default(now())
-  
+
   @@index([userId, profileId])
   @@index([contentId])
   @@map("watch_history")
@@ -891,12 +900,12 @@ model Subscription {
   currentPeriodStart    DateTime
   currentPeriodEnd      DateTime
   canceledAt            DateTime?
-  
+
   user                  User               @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
+
   createdAt             DateTime           @default(now())
   updatedAt             DateTime           @updatedAt
-  
+
   @@map("subscriptions")
 }
 
@@ -923,6 +932,7 @@ enum SubscriptionStatus {
 ### 6.5 API Endpoints (Contrato Frontend ↔ Backend)
 
 #### Auth Endpoints
+
 ```
 POST   /api/v1/auth/register          # Registro
 POST   /api/v1/auth/login             # Login
@@ -934,6 +944,7 @@ GET    /api/v1/auth/verify-email/:token # Verificar email
 ```
 
 #### User Endpoints
+
 ```
 GET    /api/v1/users/me               # Perfil do usuário logado
 PATCH  /api/v1/users/me               # Atualizar perfil
@@ -941,6 +952,7 @@ DELETE /api/v1/users/me               # Deletar conta
 ```
 
 #### Baby Profile Endpoints
+
 ```
 GET    /api/v1/profiles               # Listar perfis do usuário
 POST   /api/v1/profiles               # Criar perfil do bebê
@@ -951,6 +963,7 @@ GET    /api/v1/profiles/:id/progress  # Progresso de aprendizagem
 ```
 
 #### Content Endpoints
+
 ```
 GET    /api/v1/content                # Listar conteúdos (filtros: ageGroup, category, language, search)
 GET    /api/v1/content/featured       # Conteúdos em destaque
@@ -960,12 +973,14 @@ POST   /api/v1/content/:id/watch      # Registrar visualização
 ```
 
 #### Playlist Endpoints
+
 ```
 GET    /api/v1/playlists              # Listar playlists
 GET    /api/v1/playlists/:slug        # Detalhes da playlist
 ```
 
 #### Billing Endpoints
+
 ```
 GET    /api/v1/billing/plans          # Listar planos disponíveis
 POST   /api/v1/billing/checkout       # Criar Stripe Checkout Session
@@ -976,12 +991,14 @@ POST   /api/v1/webhooks/stripe        # Stripe webhook handler
 ```
 
 #### Analytics Endpoints
+
 ```
 GET    /api/v1/analytics/usage        # Tempo de uso (diário/semanal)
 GET    /api/v1/analytics/goals        # Progresso nas metas
 ```
 
 #### Admin Endpoints
+
 ```
 GET    /api/v1/admin/content          # Listar conteúdos (admin)
 POST   /api/v1/admin/content          # Criar conteúdo
@@ -1023,11 +1040,11 @@ const YouTubeEmbed = ({ videoId }: { videoId: string }) => (
 ### 7.3 Estimativa de Receita YouTube
 
 | Usuários Ativos | Views/dia (3 vídeos) | Views/mês | CPM $2 | Receita/mês |
-|---|---|---|---|---|
-| 1.000 | 3.000 | 90.000 | $2 | ~$180 |
-| 5.000 | 15.000 | 450.000 | $2 | ~$900 |
-| 10.000 | 30.000 | 900.000 | $2 | ~$1.800 |
-| 50.000 | 150.000 | 4.500.000 | $2 | ~$9.000 |
+| --------------- | -------------------- | --------- | ------ | ----------- |
+| 1.000           | 3.000                | 90.000    | $2     | ~$180       |
+| 5.000           | 15.000               | 450.000   | $2     | ~$900       |
+| 10.000          | 30.000               | 900.000   | $2     | ~$1.800     |
+| 50.000          | 150.000              | 4.500.000 | $2     | ~$9.000     |
 
 ---
 
@@ -1038,14 +1055,14 @@ gantt
     title Roadmap Commet Baby - MVP
     dateFormat  YYYY-MM-DD
     axisFormat %d/%m
-    
+
     section Sprint 1 - Foundation
     Setup monorepo + CI/CD           :s1a, 2026-07-01, 5d
     Database schema + migrations     :s1b, after s1a, 3d
     Auth (register/login/logout)     :s1c, after s1a, 7d
     Landing page                     :s1d, after s1a, 5d
     Baby profile CRUD                :s1e, after s1c, 4d
-    
+
     section Sprint 2 - Core
     Content listing + filters        :s2a, after s1e, 5d
     YouTube embedded player          :s2b, after s2a, 3d
@@ -1054,7 +1071,7 @@ gantt
     Plans page                       :s2e, after s2d, 3d
     Content access control           :s2f, after s2d, 3d
     Admin CRUD conteúdo              :s2g, after s2a, 5d
-    
+
     section Sprint 3 - Enhance
     Bilingual toggle + add-on        :s3a, after s2f, 5d
     Learning goals system            :s3b, after s2f, 5d
@@ -1062,7 +1079,7 @@ gantt
     Parental dashboard               :s3d, after s3b, 4d
     Stripe Customer Portal           :s3e, after s2e, 3d
     PWA manifest + offline           :s3f, after s3c, 3d
-    
+
     section Sprint 4 - Polish
     Playlists curadas                :s4a, after s3c, 4d
     Gift subscriptions               :s4b, after s3e, 3d
@@ -1078,82 +1095,76 @@ gantt
 
 ### Você (Frontend + Full-Stack)
 
-| Responsabilidade | Detalhes |
-|---|---|
-| **Next.js App** | Pages, components, routing, SSR |
-| **Design System** | Componentes UI (seu design system) |
-| **BFF (API Routes)** | Middleware entre frontend e backend |
-| **YouTube/Audio Player** | Implementação dos players |
-| **Stripe Frontend** | Checkout Session redirect, Customer Portal |
-| **PWA** | Service worker, manifest, offline |
-| **Landing Page** | SEO, conversão |
-| **Admin Panel** | Interface de gestão de conteúdo |
+| Responsabilidade         | Detalhes                                   |
+| ------------------------ | ------------------------------------------ |
+| **Next.js App**          | Pages, components, routing, SSR            |
+| **Design System**        | Componentes UI (seu design system)         |
+| **BFF (API Routes)**     | Middleware entre frontend e backend        |
+| **YouTube/Audio Player** | Implementação dos players                  |
+| **Stripe Frontend**      | Checkout Session redirect, Customer Portal |
+| **PWA**                  | Service worker, manifest, offline          |
+| **Landing Page**         | SEO, conversão                             |
+| **Admin Panel**          | Interface de gestão de conteúdo            |
 
 ### Seu Amigo (Backend)
 
-| Responsabilidade | Detalhes |
-|---|---|
-| **API REST** | Todos os endpoints listados em 6.5 |
-| **Auth System** | JWT, refresh tokens, OAuth providers |
-| **Database** | Prisma schema, migrations, seeds |
-| **Stripe Backend** | Webhook handlers, subscription logic |
-| **File Upload** | S3/R2 integration para áudios/thumbnails |
-| **Rate Limiting** | Proteção de endpoints |
-| **Email Service** | Templates e envio transacional |
-| **CI/CD** | Pipeline de deploy do backend |
+| Responsabilidade   | Detalhes                                 |
+| ------------------ | ---------------------------------------- |
+| **API REST**       | Todos os endpoints listados em 6.5       |
+| **Auth System**    | JWT, refresh tokens, OAuth providers     |
+| **Database**       | Prisma schema, migrations, seeds         |
+| **Stripe Backend** | Webhook handlers, subscription logic     |
+| **File Upload**    | S3/R2 integration para áudios/thumbnails |
+| **Rate Limiting**  | Proteção de endpoints                    |
+| **Email Service**  | Templates e envio transacional           |
+| **CI/CD**          | Pipeline de deploy do backend            |
 
 ### Shared (packages/)
 
-| Package | Quem mantém | O que contém |
-|---|---|---|
-| `@commet/shared` | Ambos | Types, constants, validators (Zod) |
-| `@commet/database` | Backend (primário) | Prisma schema, migrations, seed |
+| Package            | Quem mantém        | O que contém                       |
+| ------------------ | ------------------ | ---------------------------------- |
+| `@commet/shared`   | Ambos              | Types, constants, validators (Zod) |
+| `@commet/database` | Backend (primário) | Prisma schema, migrations, seed    |
 
 ---
 
 ## User Review Required
 
 > [!IMPORTANT]
+>
 > ### Decisões que precisam da sua aprovação:
-> 
+>
 > 1. **Tech Stack Backend:** Opção A (Full TypeScript com Node.js + Fastify) ou Opção B (Python + FastAPI)? Isso depende da preferência do seu amigo backend.
-> 
 > 2. **Auth Provider:** Auth.js (open-source, mais controle) ou Clerk (managed, mais rápido de implementar)?
-> 
 > 3. **Database Hosting:** Neon (serverless PostgreSQL), Supabase (PostgreSQL + extras), ou self-hosted?
-> 
 > 4. **Pricing dos planos:** Os valores sugeridos (R$ 19,90 / R$ 24,90 / R$ 34,90 + R$ 14,90 bilíngue) estão adequados para o mercado-alvo?
-> 
 > 5. **Monorepo tool:** Turborepo (mais popular, Vercel ecosystem) ou pnpm workspaces puro?
 
 ## Open Questions
 
 > [!WARNING]
+>
 > ### Pontos a definir antes de iniciar o desenvolvimento:
-> 
+>
 > 1. **Conteúdo inicial:** Vocês já têm conteúdo produzido (vídeos no YouTube, áudios)? Ou isso será produzido em paralelo?
-> 
 > 2. **Canal YouTube:** Já existe um canal do YouTube configurado como "made for kids"?
-> 
 > 3. **Domínio e marca:** O domínio `commet.baby` já está registrado? Identidade visual (logo, cores, fontes) já definida?
-> 
 > 4. **Mobile nativo futuro:** Há planos de ter app nativo (React Native/Flutter) no futuro? Isso impactaria a arquitetura da API.
-> 
 > 5. **Internacionalização:** O conteúdo bilíngue é apenas PT-BR ↔ EN? Ou há plano de expandir para ES (Espanhol)?
-> 
 > 6. **Budget de infra:** Qual o orçamento mensal para hosting/serviços? Isso impacta a escolha entre soluções managed vs self-hosted.
 
 ## Verification Plan
 
 ### Automated Tests
+
 - Unit tests com Vitest (frontend) e Jest (backend)
 - Integration tests para Stripe webhooks
 - E2E tests com Playwright para fluxos críticos (registro → trial → checkout → acesso ao conteúdo)
 
 ### Manual Verification
+
 - Testar fluxo completo de checkout com Stripe Test Mode
 - Validar embeds do YouTube em mobile e desktop
 - Testar modo áudio em background (iOS Safari é particularmente complicado)
 - Validar controle de acesso por plano (conteúdo bloqueado/desbloqueado)
 - Testar transição de faixa etária quando bebê completa idade
-

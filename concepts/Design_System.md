@@ -1,6 +1,11 @@
 ---
 title: Design System — Commet Baby
-tags: [design-system, frontend, marca, ui, commet.baby]
+category: concept
+tags: [design-system, frontend, marca, ui]
+summary: Marca e sistema de UI da Commet Baby — voz, fundamentos visuais, personagens e onde o DS vive no código.
+sources: ['Commet Baby Design System (bundle)']
+created: 2026-06-25
+updated: 2026-06-25
 ---
 
 # 🎨 Design System — Commet Baby

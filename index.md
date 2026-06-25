@@ -4,13 +4,13 @@ title: Wiki Index
 
 # Wiki Index
 
-_This index is automatically maintained. Last updated: 2026-06-25_
+_Catálogo de todas as páginas do brain. Mantido a cada escrita. Última atualização: 2026-06-25_
 
 ## Concepts
 
-- [[Design_System]]
-- [[Fluxo_de_Trabalho]]
-- [[Frontend_Web]]
+- [[Design_System]] — Marca e sistema de UI: voz, fundamentos visuais, personagens, onde vive no código.
+- [[Fluxo_de_Trabalho]] — Ciclo da feature: Spec-First → Code → Brain Sync → Issue Sync.
+- [[Frontend_Web]] — Estado do app Next.js (apps/web): rotas, integração e dependências do backend.
 
 ## Entities
 
@@ -18,8 +18,8 @@ _This index is automatically maintained. Last updated: 2026-06-25_
 
 ## References
 
-- [[Design_Tokens]]
-- [[UI_Components]]
+- [[Design_Tokens]] — Tokens do DS: cores, tipografia, espaçamento, sombras, movimento, fontes.
+- [[UI_Components]] — Catálogo dos 9 componentes do DS (props + imports).
 
 ## Synthesis
 
@@ -27,4 +27,4 @@ _This index is automatically maintained. Last updated: 2026-06-25_
 
 ## Projects
 
-- [[Passo_0_Implementacao]]
+- [[Passo_0_Implementacao]] — Idealização, modelo de negócio e requisitos (Passo 0).

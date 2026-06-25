@@ -1,3 +1,10 @@
+---
+title: API — Commet Baby
+category: doc
+summary: Documentação da API REST — endpoints, contratos de request/response e convenções.
+updated: 2026-06-25
+---
+
 # 🔌 API — Commet Baby
 
 > Contrato da API REST entre Frontend e Backend. Este documento é a fonte de verdade para integração.
@@ -6,15 +13,16 @@
 
 ## Base URL
 
-| Ambiente | Base URL |
-|---|---|
-| Local | `http://localhost:4000/api/v1` |
-| Staging | `https://api.staging.commet.baby/api/v1` |
-| Production | `https://api.commet.baby/api/v1` |
+| Ambiente   | Base URL                                 |
+| ---------- | ---------------------------------------- |
+| Local      | `http://localhost:4000/api/v1`           |
+| Staging    | `https://api.staging.commet.baby/api/v1` |
+| Production | `https://api.commet.baby/api/v1`         |
 
 ## Autenticação
 
 Todos os endpoints protegidos requerem o header:
+
 ```
 Authorization: Bearer <access_token>
 ```
@@ -51,9 +59,11 @@ Tokens JWT com expiração de 15 minutos. Refresh tokens com rotação automáti
 ## 🔐 Auth Endpoints
 
 ### `POST /auth/register`
+
 Registrar novo usuário.
 
 **Body:**
+
 ```json
 {
   "email": "user@example.com",
@@ -63,6 +73,7 @@ Registrar novo usuário.
 ```
 
 **Response:** `201 Created`
+
 ```json
 {
   "success": true,
@@ -75,9 +86,11 @@ Registrar novo usuário.
 ```
 
 ### `POST /auth/login`
+
 Login com credenciais.
 
 **Body:**
+
 ```json
 {
   "email": "user@example.com",
@@ -86,12 +99,15 @@ Login com credenciais.
 ```
 
 ### `POST /auth/logout`
+
 🔒 Logout e invalidação do token.
 
 ### `POST /auth/refresh`
+
 Renovar access token.
 
 **Body:**
+
 ```json
 {
   "refreshToken": "..."
@@ -99,9 +115,11 @@ Renovar access token.
 ```
 
 ### `POST /auth/forgot-password`
+
 Solicitar reset de senha.
 
 **Body:**
+
 ```json
 {
   "email": "user@example.com"
@@ -109,9 +127,11 @@ Solicitar reset de senha.
 ```
 
 ### `POST /auth/reset-password`
+
 Resetar senha com token.
 
 **Body:**
+
 ```json
 {
   "token": "...",
@@ -120,6 +140,7 @@ Resetar senha com token.
 ```
 
 ### `GET /auth/verify-email/:token`
+
 Verificar email via link enviado.
 
 ---
@@ -127,12 +148,15 @@ Verificar email via link enviado.
 ## 👤 User Endpoints
 
 ### `GET /users/me` 🔒
+
 Retorna o perfil do usuário autenticado.
 
 ### `PATCH /users/me` 🔒
+
 Atualizar perfil do usuário.
 
 **Body:**
+
 ```json
 {
   "name": "Novo Nome",
@@ -141,6 +165,7 @@ Atualizar perfil do usuário.
 ```
 
 ### `DELETE /users/me` 🔒
+
 Deletar conta (LGPD right to erasure).
 
 ---
@@ -148,12 +173,15 @@ Deletar conta (LGPD right to erasure).
 ## 👶 Baby Profile Endpoints
 
 ### `GET /profiles` 🔒
+
 Listar perfis do usuário.
 
 ### `POST /profiles` 🔒
+
 Criar perfil do bebê.
 
 **Body:**
+
 ```json
 {
   "name": "Bebê",
@@ -164,15 +192,19 @@ Criar perfil do bebê.
 ```
 
 ### `GET /profiles/:id` 🔒
+
 Detalhes do perfil.
 
 ### `PATCH /profiles/:id` 🔒
+
 Atualizar perfil.
 
 ### `DELETE /profiles/:id` 🔒
+
 Deletar perfil.
 
 ### `GET /profiles/:id/progress` 🔒
+
 Progresso de aprendizagem do perfil.
 
 ---
@@ -180,6 +212,7 @@ Progresso de aprendizagem do perfil.
 ## 📚 Content Endpoints
 
 ### `GET /content` 🔒
+
 Listar conteúdos com filtros.
 
 **Query Params:**
@@ -193,18 +226,23 @@ Listar conteúdos com filtros.
 | `perPage` | number | `20` | Itens por página |
 
 ### `GET /content/featured` 🔒
+
 Conteúdos em destaque.
 
 ### `GET /content/:slug` 🔒
+
 Detalhes do conteúdo. Valida acesso pelo plano do usuário.
 
 ### `GET /content/history` 🔒
+
 Histórico de visualização.
 
 ### `POST /content/:id/watch` 🔒
+
 Registrar visualização/progresso.
 
 **Body:**
+
 ```json
 {
   "profileId": "...",
@@ -220,9 +258,11 @@ Registrar visualização/progresso.
 ## 🎵 Playlist Endpoints
 
 ### `GET /playlists` 🔒
+
 Listar playlists.
 
 ### `GET /playlists/:slug` 🔒
+
 Detalhes da playlist com conteúdos.
 
 ---
@@ -230,12 +270,15 @@ Detalhes da playlist com conteúdos.
 ## 💳 Billing Endpoints
 
 ### `GET /billing/plans`
+
 Listar planos disponíveis (público).
 
 ### `POST /billing/checkout` 🔒
+
 Criar Stripe Checkout Session.
 
 **Body:**
+
 ```json
 {
   "planId": "ESTRELA",
@@ -247,6 +290,7 @@ Criar Stripe Checkout Session.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -257,15 +301,19 @@ Criar Stripe Checkout Session.
 ```
 
 ### `POST /billing/portal` 🔒
+
 Criar sessão do Stripe Customer Portal.
 
 ### `GET /billing/subscription` 🔒
+
 Status da assinatura atual.
 
 ### `POST /billing/addon/bilingual` 🔒
+
 Adicionar/remover add-on bilíngue.
 
 ### `POST /webhooks/stripe`
+
 Webhook handler do Stripe. **Não requer auth JWT** (validação por signature).
 
 ---
@@ -273,11 +321,13 @@ Webhook handler do Stripe. **Não requer auth JWT** (validação por signature).
 ## 📊 Analytics Endpoints
 
 ### `GET /analytics/usage` 🔒
+
 Tempo de uso diário/semanal.
 
 **Query Params:** `profileId`, `period` (`daily` | `weekly`)
 
 ### `GET /analytics/goals` 🔒
+
 Progresso nas metas de aprendizagem.
 
 **Query Params:** `profileId`
@@ -289,27 +339,35 @@ Progresso nas metas de aprendizagem.
 > 🔒 Requer `role: ADMIN`
 
 ### `GET /admin/content`
+
 Listar todos os conteúdos (incluindo drafts).
 
 ### `POST /admin/content`
+
 Criar conteúdo.
 
 ### `PATCH /admin/content/:id`
+
 Editar conteúdo.
 
 ### `DELETE /admin/content/:id`
+
 Deletar conteúdo.
 
 ### `POST /admin/content/:id/publish`
+
 Publicar conteúdo (DRAFT → PUBLISHED).
 
 ### `GET /admin/users`
+
 Listar usuários.
 
 ### `GET /admin/dashboard`
+
 Métricas de negócio (MRR, churn, MAU).
 
 ### `POST /admin/upload`
+
 Upload de arquivo (audio/thumbnail) para S3/R2.
 
 ---
@@ -318,9 +376,9 @@ Upload de arquivo (audio/thumbnail) para S3/R2.
 
 ```typescript
 enum AgeGroup {
-  NEWBORN_12M = 'NEWBORN_12M',   // 0-12 meses
+  NEWBORN_12M = 'NEWBORN_12M', // 0-12 meses
   TODDLER_1_2Y = 'TODDLER_1_2Y', // 1-2 anos
-  PRESCHOOL_2_3Y = 'PRESCHOOL_2_3Y' // 2-3 anos
+  PRESCHOOL_2_3Y = 'PRESCHOOL_2_3Y', // 2-3 anos
 }
 
 enum ContentCategory {
@@ -330,27 +388,27 @@ enum ContentCategory {
   SENSORY = 'SENSORY',
   ROUTINE = 'ROUTINE',
   LEARNING = 'LEARNING',
-  NATURE = 'NATURE'
+  NATURE = 'NATURE',
 }
 
 enum Language {
   PT_BR = 'PT_BR',
-  EN = 'EN'
+  EN = 'EN',
 }
 
 enum SubscriptionPlan {
   COMETA = 'COMETA',
   ESTRELA = 'ESTRELA',
-  GALAXIA = 'GALAXIA'
+  GALAXIA = 'GALAXIA',
 }
 
 enum BillingCycle {
   MONTHLY = 'MONTHLY',
-  ANNUAL = 'ANNUAL'
+  ANNUAL = 'ANNUAL',
 }
 
 enum PlayMode {
   VIDEO = 'VIDEO',
-  AUDIO = 'AUDIO'
+  AUDIO = 'AUDIO',
 }
 ```

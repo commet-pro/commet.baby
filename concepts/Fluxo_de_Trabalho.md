@@ -1,6 +1,11 @@
 ---
 title: Fluxo de Trabalho — Spec-First, Brain Sync & Issue Sync
-tags: [processo, workflow, github, brain, commet.baby]
+category: concept
+tags: [processo, workflow, github, brain]
+summary: Ciclo de vida da feature (Spec-First → Code → Brain Sync → Issue Sync) e a convenção de manter as issues do GitHub em dia.
+sources: ['docs/CONTRIBUTING.md']
+created: 2026-06-25
+updated: 2026-06-25
 ---
 
 # 🔁 Fluxo de Trabalho — Commet Baby

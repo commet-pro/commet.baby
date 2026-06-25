@@ -1,3 +1,10 @@
+---
+title: Arquitetura — Commet Baby
+category: doc
+summary: Arquitetura técnica — camadas, monorepo, módulos, schema Prisma e contrato de API.
+updated: 2026-06-25
+---
+
 # 🏗️ Arquitetura — Commet Baby
 
 > Documento de referência para a arquitetura técnica da plataforma.
@@ -77,7 +84,7 @@ commet.baby/
 @commet/shared ──────► apps/web
        │
        └─────────────► apps/api
-       
+
 @commet/database ────► apps/api
        │
        └─────────────► apps/web (apenas tipos gerados)
@@ -86,12 +93,14 @@ commet.baby/
 ## Módulos
 
 ### Auth Module
+
 - Registro/Login com email + senha
 - OAuth (Google, Apple) — Sprint 2
 - JWT com refresh token rotation
 - Rate limiting em endpoints sensíveis
 
 ### Content Module
+
 - CRUD de conteúdo (admin)
 - YouTube embedded player (privacy-enhanced mode)
 - Audio player com background playback
@@ -99,12 +108,14 @@ commet.baby/
 - Controle de acesso por plano de assinatura
 
 ### Billing Module
+
 - Stripe Checkout Sessions (hosted)
 - Webhooks para sincronização de estado
 - Stripe Customer Portal (self-service)
 - Suporte a PIX, Boleto e Cartão
 
 ### Analytics Module
+
 - Tempo de uso (diário/semanal)
 - Histórico de visualizações
 - Progresso nas metas de aprendizagem
@@ -112,19 +123,19 @@ commet.baby/
 
 ## Decisões Técnicas
 
-| Decisão | Escolha | Justificativa |
-|---|---|---|
-| **Monorepo tool** | Turborepo | Performance, cache, Vercel ecosystem |
-| **Package manager** | pnpm | Mais rápido que npm/yarn, workspaces nativo |
-| **ORM** | Prisma | Type-safe, migrations, schema como contrato |
-| **State management** | Zustand | Leve, simples, sem boilerplate |
-| **Validation** | Zod | Runtime + compile-time validation, compartilhado |
-| **YouTube embed** | youtube-nocookie.com | COPPA/LGPD compliance |
+| Decisão              | Escolha              | Justificativa                                    |
+| -------------------- | -------------------- | ------------------------------------------------ |
+| **Monorepo tool**    | Turborepo            | Performance, cache, Vercel ecosystem             |
+| **Package manager**  | pnpm                 | Mais rápido que npm/yarn, workspaces nativo      |
+| **ORM**              | Prisma               | Type-safe, migrations, schema como contrato      |
+| **State management** | Zustand              | Leve, simples, sem boilerplate                   |
+| **Validation**       | Zod                  | Runtime + compile-time validation, compartilhado |
+| **YouTube embed**    | youtube-nocookie.com | COPPA/LGPD compliance                            |
 
 ## Ambientes
 
-| Ambiente | URL | Propósito |
-|---|---|---|
-| **Local** | `localhost:3000` / `localhost:4000` | Desenvolvimento |
-| **Staging** | `staging.commet.baby` | QA e testes |
-| **Production** | `commet.baby` | Produção |
+| Ambiente       | URL                                 | Propósito       |
+| -------------- | ----------------------------------- | --------------- |
+| **Local**      | `localhost:3000` / `localhost:4000` | Desenvolvimento |
+| **Staging**    | `staging.commet.baby`               | QA e testes     |
+| **Production** | `commet.baby`                       | Produção        |
