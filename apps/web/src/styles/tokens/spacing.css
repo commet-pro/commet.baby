@@ -1,0 +1,34 @@
+/* Commet Baby — Spacing, radius & layout tokens
+   Generous, airy spacing. Radii are large and friendly — pills and soft cards, never sharp. */
+:root {
+  /* 4px base spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* radii — soft + rounded is core to the brand */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px; /* default control radius */
+  --radius-lg: 24px; /* cards */
+  --radius-xl: 32px; /* large surfaces */
+  --radius-pill: 999px;
+
+  /* container widths */
+  --container-sm: 640px;
+  --container-md: 880px;
+  --container-lg: 1140px;
+
+  /* control sizing — touch-friendly (kids/parents) */
+  --control-h-sm: 36px;
+  --control-h-md: 48px;
+  --control-h-lg: 56px;
+}

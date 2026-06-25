@@ -1,0 +1,76 @@
+/* Commet Baby — base element defaults & a few utility primitives.
+   Kept light: just enough so raw HTML inherits the brand voice. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--text-body);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  color: var(--text-strong);
+  line-height: var(--lh-tight);
+  margin: 0 0 0.4em;
+  letter-spacing: var(--ls-display);
+}
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+}
+h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-normal);
+}
+
+p {
+  margin: 0 0 1em;
+}
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+small {
+  font-size: var(--fs-sm);
+}
+
+::selection {
+  background: var(--lavender-200);
+  color: var(--ink-900);
+}
+
+/* uppercase eyebrow / label */
+.cb-eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
