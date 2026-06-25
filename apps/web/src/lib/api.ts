@@ -1,4 +1,11 @@
-import type { ForgotPasswordInput, LoginInput, RegisterInput } from '@commet/shared';
+import type {
+  CreateBabyProfileInput,
+  ForgotPasswordInput,
+  Language,
+  LoginInput,
+  RegisterInput,
+  UpdateBabyProfileInput,
+} from '@commet/shared';
 import { useAuthStore, type AuthUser } from '@/stores/auth.store';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
@@ -111,4 +118,24 @@ export const authApi = {
     apiRequest<null>('/api/v1/auth/forgot-password', { method: 'POST', body: input }),
   logout: () => apiRequest<null>('/api/v1/auth/logout', { method: 'POST', auth: true }),
   me: () => apiRequest<AuthUser>('/api/v1/users/me', { auth: true }),
+};
+
+/* ------------------------------ profiles API ------------------------------ */
+
+export interface BabyProfile {
+  id: string;
+  name: string;
+  birthDate: string;
+  avatarId: string;
+  languagePref: Language;
+}
+
+export const profilesApi = {
+  list: () => apiRequest<BabyProfile[]>('/api/v1/profiles', { auth: true }),
+  create: (input: CreateBabyProfileInput) =>
+    apiRequest<BabyProfile>('/api/v1/profiles', { method: 'POST', body: input, auth: true }),
+  update: (id: string, input: UpdateBabyProfileInput) =>
+    apiRequest<BabyProfile>(`/api/v1/profiles/${id}`, { method: 'PATCH', body: input, auth: true }),
+  remove: (id: string) =>
+    apiRequest<null>(`/api/v1/profiles/${id}`, { method: 'DELETE', auth: true }),
 };
