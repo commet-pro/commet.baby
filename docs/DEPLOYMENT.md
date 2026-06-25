@@ -1,3 +1,10 @@
+---
+title: Deploy — Commet Baby
+category: doc
+summary: Guia de deploy e ambientes (local, staging, produção).
+updated: 2026-06-25
+---
+
 # 🚀 Deploy — Commet Baby
 
 > Guia de deploy e infraestrutura.
@@ -6,11 +13,11 @@
 
 ## Ambientes
 
-| Ambiente | Frontend | Backend | Database | Branch |
-|---|---|---|---|---|
-| **Local** | `localhost:3000` | `localhost:4000` | Local PostgreSQL | `feature/*` |
-| **Staging** | Vercel Preview | Railway/Render | Staging DB | `develop` |
-| **Production** | Vercel | Railway/Render | Production DB | `main` |
+| Ambiente       | Frontend         | Backend          | Database         | Branch      |
+| -------------- | ---------------- | ---------------- | ---------------- | ----------- |
+| **Local**      | `localhost:3000` | `localhost:4000` | Local PostgreSQL | `feature/*` |
+| **Staging**    | Vercel Preview   | Railway/Render   | Staging DB       | `develop`   |
+| **Production** | Vercel           | Railway/Render   | Production DB    | `main`      |
 
 ## CI/CD Pipeline
 
