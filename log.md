@@ -9,3 +9,4 @@ title: Wiki Log
 - [2026-06-25] WORKFLOW added Issue Sync convention to CONTRIBUTING + PR template; mirrored to brain: [[Fluxo_de_Trabalho]]. Commented DS unblock on issues #9/#11/#12/#15/#16/#17/#19.
 - [2026-06-25] FRONTEND auth pages (#9, PR #40), landing (#12, PR #41) and baby profiles (#11, PR #42) merged to develop; added API client + Zustand auth store. Sprint 1 front complete.
 - [2026-06-25] BRAIN_SYNC documented frontend state in [[Frontend_Web]] (routes, integration layer, stub-readiness, backend dependency); indexed and logged.
+- [2026-06-25] BRAIN_CONFORM brought the wiki into schema conformance: full frontmatter (category/summary/sources/created/updated) on the 5 notes, index.md with per-page summaries, created .manifest.json + vault-root AGENTS.md (owner conventions), and de-duplicated .agents/AGENTS.md (269->141 lines).

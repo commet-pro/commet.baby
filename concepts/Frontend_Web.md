@@ -1,6 +1,11 @@
 ---
 title: Frontend Web (apps/web) — Estado & Estrutura
-tags: [frontend, web, nextjs, commet.baby]
+category: concept
+tags: [frontend, web, nextjs]
+summary: Estado e estrutura do app Next.js (apps/web) — rotas entregues, camada de integração e dependência do backend.
+sources: ['apps/web', 'PRs #38/#40/#41/#42']
+created: 2026-06-25
+updated: 2026-06-25
 ---
 
 # 🌐 Frontend Web — Commet Baby

@@ -1,6 +1,11 @@
 ---
 title: Design Tokens — Commet Baby
-tags: [design-system, tokens, css, referencia, commet.baby]
+category: reference
+tags: [design-system, tokens, css, referencia]
+summary: Referência dos design tokens — cores, tipografia, espaçamento, raios, sombras, movimento e fontes.
+sources: ['Commet Baby Design System (bundle)']
+created: 2026-06-25
+updated: 2026-06-25
 ---
 
 # 🎛️ Design Tokens — Commet Baby

@@ -1,6 +1,11 @@
 ---
 title: UI Components — Commet Baby Design System
-tags: [design-system, componentes, react, referencia, commet.baby]
+category: reference
+tags: [design-system, componentes, react, referencia]
+summary: Catálogo dos 9 componentes do design system com props, estados e caminhos de import.
+sources: ['Commet Baby Design System (bundle)']
+created: 2026-06-25
+updated: 2026-06-25
 ---
 
 # 🧩 UI Components — Commet Baby
