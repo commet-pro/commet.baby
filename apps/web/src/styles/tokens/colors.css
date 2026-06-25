@@ -1,0 +1,77 @@
+/* Commet Baby — Color tokens
+   A warm, soft pastel system on a cream canvas, anchored by deep ink + a confident orange.
+   The pastels (lavender, sky, mint, yellow, peach) carry the playful "comet sky" feeling. */
+:root {
+  /* ---- Brand palette (raw) ---- */
+  --commet-ink: #0b0d14; /* near-black navy — logo, headings */
+  --commet-orange: #ff7a00; /* the comet — primary action */
+  --commet-lavender: #bda3f7; /* secondary brand, "B" in BABY */
+  --commet-sky: #7fc8f8; /* sky blue, "Y" tone */
+  --commet-mint: #7edbc6; /* mint/teal accent */
+  --commet-yellow: #ffd77a; /* warm star yellow */
+  --commet-peach: #ffb49a; /* coral/peach, affection */
+  --commet-cream: #fff6e6; /* canvas background */
+
+  /* ---- Tints & shades (derived, for hovers/fills) ---- */
+  --orange-700: #e06a00;
+  --orange-600: #ff7a00;
+  --orange-200: #ffd8b0;
+  --orange-100: #ffe9d6;
+
+  --lavender-600: #a687f2;
+  --lavender-200: #e4dafb;
+  --lavender-100: #f1ebfd;
+
+  --sky-600: #5bb7f2;
+  --sky-200: #cfebfc;
+  --sky-100: #e7f5fe;
+
+  --mint-600: #5fcbb2;
+  --mint-200: #d2f2ea;
+  --mint-100: #ebf9f5;
+
+  --yellow-200: #ffefc4;
+  --peach-200: #ffe0d4;
+
+  /* ---- Neutrals (warm-tinted greys, never pure grey) ---- */
+  --ink-900: #0b0d14;
+  --ink-700: #2c3140;
+  --ink-500: #5b6072;
+  --ink-300: #9aa0b2;
+  --ink-200: #c9cdd9;
+  --ink-100: #e7e9f0;
+  --paper: #ffffff;
+
+  /* ---- Semantic aliases ---- */
+  --bg-canvas: var(--commet-cream);
+  --bg-canvas-alt: #fffcf5;
+  --surface-card: var(--paper);
+  --surface-sunk: #fbf7ee;
+
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-onbrand: #ffffff;
+  --text-link: var(--orange-700);
+
+  --border-soft: var(--ink-100);
+  --border-card: #f0ebdf;
+
+  --action-primary: var(--commet-orange);
+  --action-primary-hover: var(--orange-700);
+  --action-secondary: var(--commet-lavender);
+  --action-secondary-hover: var(--lavender-600);
+
+  /* ---- Status (kept friendly, not alarming) ---- */
+  --success: #4fb286;
+  --warning: #ffb02e;
+  --danger: #f47272;
+  --info: var(--commet-sky);
+
+  /* ---- Character accent hooks ---- */
+  --c-cometinho: var(--commet-orange);
+  --c-lila: var(--commet-lavender);
+  --c-dino: #8bc98a;
+  --c-nina: var(--commet-yellow);
+  --c-nuvito: var(--commet-sky);
+}
