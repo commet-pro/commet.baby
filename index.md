@@ -10,6 +10,7 @@ _This index is automatically maintained. Last updated: 2026-06-25_
 
 - [[Design_System]]
 - [[Fluxo_de_Trabalho]]
+- [[Frontend_Web]]
 
 ## Entities
 
