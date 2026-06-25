@@ -1,0 +1,21 @@
+/* Commet Baby — global stylesheet for apps/web.
+   This is the single entry point imported by the root layout. It pulls in the
+   design-system token manifest (mirrors the DS bundle's styles.css) and then
+   layers a few app-level base rules on top. */
+
+@import './tokens/fonts.css';
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/effects.css';
+@import './tokens/base.css';
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg-canvas);
+  color: var(--text-body);
+}
