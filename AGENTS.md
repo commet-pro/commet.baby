@@ -7,7 +7,7 @@ O framework e as skills vivem em `.agents/` — ver [`.agents/AGENTS.md`](.agent
 
 - Este repositório **é** o vault (brain). Páginas em `concepts/ entities/ skills/ references/ synthesis/ journal/ projects/`.
 - Navegação: `index.md` (catálogo), `log.md` (cronológico), `hot.md` (hot cache ~500 palavras), `.manifest.json` (rastreio de sources).
-- Link format: `[[wikilinks]]`.
+- Link format: wikilinks — ex.: `[[Design_System]]`.
 
 ## Idioma & estilo
 
