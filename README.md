@@ -48,6 +48,7 @@ commet.baby/
 - [API](docs/API.md)
 - [Contribuindo](docs/CONTRIBUTING.md)
 - [Deploy](docs/DEPLOYMENT.md)
+- [Backend (apps/api)](apps/api/README.md) — README do backend: setup, rotas e padrões
 
 ## 🧠 Brain (Obsidian) & Padrões para Agentes
 
