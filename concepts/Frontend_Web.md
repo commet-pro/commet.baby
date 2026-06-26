@@ -41,6 +41,7 @@ consumindo o contrato da API do backend. Segue o [[Fluxo_de_Trabalho]] e o plano
 
 O fluxo end-to-end de auth e perfis depende das issues `owner:backend` (#5–#8 auth, #10 perfis, #13 db/seed).
 Não tocamos em `apps/api` nem `packages/database`; tratamos o contrato (rotas, envelope, `@commet/shared` e schema Prisma) como **read-only**.
+Doc do backend (mantido pelo Gustavo): [apps/api/README.md](../apps/api/README.md).
 
 ## Status (Sprint 1 — Foundation: frontend completo)
 
