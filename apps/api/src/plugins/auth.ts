@@ -7,7 +7,7 @@ declare module '@fastify/jwt' {
     user: {
       id: string;
       email: string;
-      role: 'USER' | 'ADMIN';
+      role: 'PARENT' | 'ADMIN';
     };
   }
 }
@@ -21,7 +21,7 @@ declare module 'fastify' {
 
 export default fp(async (fastify) => {
   await fastify.register(fastifyJwt, {
-    secret: process.env.JWT_SECRET || 'fallback-secret-for-dev-only'
+    secret: process.env.JWT_SECRET || 'fallback-secret-for-dev-only',
   });
 
   fastify.decorate('authenticate', async (request: FastifyRequest, reply: FastifyReply) => {
@@ -33,8 +33,8 @@ export default fp(async (fastify) => {
         error: {
           code: 'UNAUTHORIZED',
           message: 'Token de acesso inválido ou expirado',
-          statusCode: 401
-        }
+          statusCode: 401,
+        },
       });
     }
   });
@@ -51,8 +51,8 @@ export default fp(async (fastify) => {
         error: {
           code: 'FORBIDDEN',
           message: 'Você não tem permissão para acessar este recurso',
-          statusCode: 403
-        }
+          statusCode: 403,
+        },
       });
     }
   });

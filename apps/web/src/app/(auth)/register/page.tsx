@@ -39,7 +39,7 @@ export default function RegisterPage() {
       const res = await authApi.register(parsed.data);
       if (res.data?.accessToken) {
         setSession({ user: res.data.user, accessToken: res.data.accessToken });
-        router.push('/');
+        router.push('/profiles');
       } else {
         setNotice(
           'Cadastro enviado, mas o backend ainda é um stub (não retorna token). O fluxo está pronto para a API real. Você já pode tentar entrar.',

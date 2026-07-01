@@ -11,7 +11,8 @@
   },
   "packageManager": "pnpm@10.12.1",
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "docker compose up -d --wait && turbo run dev",
+    "dev:stop": "docker compose down",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
