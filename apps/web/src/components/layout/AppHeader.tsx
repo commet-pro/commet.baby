@@ -8,6 +8,7 @@ import { useAuthStore } from '@/stores/auth.store';
 const NAV = [
   { href: '/home', label: 'Explorar' },
   { href: '/profiles', label: 'Perfis' },
+  { href: '/plans', label: 'Planos' },
 ];
 
 export function AppHeader() {

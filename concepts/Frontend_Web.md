@@ -22,6 +22,7 @@ consumindo o contrato da API do backend. Segue o [[Fluxo_de_Trabalho]] e o plano
 | `/home`                                 | `app/(main)/home/page.tsx`         | #15         | Catálogo de conteúdo (grid + filtros faixa/categoria/busca, destaques)                                    |
 | `/story/[slug]`                         | `app/(main)/story/[slug]/page.tsx` | #15 #16 #17 | Detalhe do conteúdo com player: YouTube privacy-enhanced + modo áudio (Media Session), toggle vídeo↔áudio |
 | `/profiles`                             | `app/(main)/profiles/page.tsx`     | #11         | CRUD de perfis do bebê (Avatar, idade, idioma)                                                            |
+| `/plans`                                | `app/(main)/plans/page.tsx`        | #19         | Planos + checkout (ciclo mensal/anual, add-on bilíngue, redirect Stripe)                                  |
 | `/design-system`                        | `app/design-system/page.tsx`       | —           | Showcase do DS (tokens + componentes)                                                                     |
 
 As rotas autenticadas vivem no grupo `(main)` com um shell comum (`AppHeader` em `app/(main)/layout.tsx`).
@@ -48,4 +49,4 @@ Doc do backend (mantido pelo Gustavo): [apps/api/README.md](../apps/api/README.m
 ## Status
 
 - ✅ **Sprint 1 (Foundation):** Design system (#38), Auth (#9), Landing (#12), Perfis (#11).
-- 🟢 **Sprint 2 (Core, em andamento):** Home/catálogo + mock layer (#15) ✅ · players vídeo/áudio (#16/#17) ✅. Próximo: planos + checkout (#19).
+- 🟢 **Sprint 2 (Core, em andamento):** Home/catálogo + mock (#15) ✅ · players (#16/#17) ✅ · planos + checkout (#19) ✅. Restante da sprint depende do backend (#18 webhooks, #20 acesso por plano, #21 admin).

@@ -50,6 +50,18 @@ export async function mockDispatch<T>(
     };
   }
 
+  // POST /api/v1/billing/checkout — sessão de demonstração (a UI reconhece o prefixo "mock:")
+  if (method === 'POST' && p === '/api/v1/billing/checkout') {
+    await delay(LATENCY_MS);
+    return { success: true, data: { checkoutUrl: 'mock:checkout' } as unknown as T };
+  }
+
+  // GET /api/v1/billing/subscription — sem assinatura no demo
+  if (method === 'GET' && p === '/api/v1/billing/subscription') {
+    await delay(LATENCY_MS);
+    return { success: true, data: null as unknown as T };
+  }
+
   // GET /api/v1/content/:slug
   const slug = p.match(/^\/api\/v1\/content\/([^/]+)$/);
   if (method === 'GET' && slug) {
