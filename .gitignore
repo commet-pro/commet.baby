@@ -75,6 +75,15 @@ coverage/
 .vercel/
 
 # ========================
+# Obsidian (brain/vault)
+# ========================
+# Estado local por usuário (workspace, graph view, plugins instalados) fica fora
+# do git; só as configs compartilhadas do vault são versionadas (whitelist).
+.obsidian/*
+!.obsidian/app.json
+!.obsidian/appearance.json
+
+# ========================
 # Misc
 # ========================
 *.pem
