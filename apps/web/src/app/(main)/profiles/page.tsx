@@ -112,14 +112,6 @@ export default function ProfilesPage() {
         padding: 'var(--space-8) var(--space-6)',
       }}
     >
-      <Link href="/" aria-label="Commet Baby">
-        <img
-          src="/brand/logo-lockup.png"
-          alt="Commet Baby"
-          style={{ height: 32, marginBottom: 'var(--space-6)' }}
-        />
-      </Link>
-
       <div
         style={{
           display: 'flex',

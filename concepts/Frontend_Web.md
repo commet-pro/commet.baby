@@ -2,10 +2,10 @@
 title: Frontend Web (apps/web) — Estado & Estrutura
 category: concept
 tags: [frontend, web, nextjs]
-summary: Estado e estrutura do app Next.js (apps/web) — rotas entregues, camada de integração e dependência do backend.
-sources: ['apps/web', 'PRs #38/#40/#41/#42']
+summary: Estado e estrutura do app Next.js (apps/web) — rotas entregues, camada de integração, mock layer e dependência do backend.
+sources: ['apps/web', 'PRs #38/#40/#41/#42 + Sprint 2']
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-06-26
 ---
 
 # 🌐 Frontend Web — Commet Baby
@@ -15,35 +15,37 @@ consumindo o contrato da API do backend. Segue o [[Fluxo_de_Trabalho]] e o plano
 
 ## Rotas entregues
 
-| Rota                                    | Arquivo                        | Issue | O quê                                                           |
-| --------------------------------------- | ------------------------------ | ----- | --------------------------------------------------------------- |
-| `/`                                     | `app/page.tsx`                 | #12   | Landing de conversão/SEO (hero, planos, personagens, selo, CTA) |
-| `/login` `/register` `/forgot-password` | `app/(auth)/*`                 | #9    | Autenticação (forms + validação Zod)                            |
-| `/profiles`                             | `app/(main)/profiles/page.tsx` | #11   | CRUD de perfis do bebê (Avatar, idade, idioma)                  |
-| `/design-system`                        | `app/design-system/page.tsx`   | —     | Showcase do DS (tokens + componentes)                           |
+| Rota                                    | Arquivo                            | Issue | O quê                                                                  |
+| --------------------------------------- | ---------------------------------- | ----- | ---------------------------------------------------------------------- |
+| `/`                                     | `app/page.tsx`                     | #12   | Landing de conversão/SEO (hero, planos, personagens, selo, CTA)        |
+| `/login` `/register` `/forgot-password` | `app/(auth)/*`                     | #9    | Autenticação (forms + validação Zod)                                   |
+| `/home`                                 | `app/(main)/home/page.tsx`         | #15   | Catálogo de conteúdo (grid + filtros faixa/categoria/busca, destaques) |
+| `/story/[slug]`                         | `app/(main)/story/[slug]/page.tsx` | #15   | Detalhe do conteúdo (player de vídeo/áudio chega em #16/#17)           |
+| `/profiles`                             | `app/(main)/profiles/page.tsx`     | #11   | CRUD de perfis do bebê (Avatar, idade, idioma)                         |
+| `/design-system`                        | `app/design-system/page.tsx`       | —     | Showcase do DS (tokens + componentes)                                  |
+
+As rotas autenticadas vivem no grupo `(main)` com um shell comum (`AppHeader` em `app/(main)/layout.tsx`).
 
 ## Camada de integração
 
-- `src/lib/api.ts` — client `fetch` tipado para o envelope do backend `{ success, data, error }`
-  (`ApiError`, bearer token do store). Helpers: `authApi`, `profilesApi`.
+- `src/lib/api.ts` — client `fetch` tipado para o envelope `{ success, data, error }` (`ApiError`, bearer token do store). Helpers: `authApi`, `profilesApi`, `contentApi`.
+- **Mock layer (frontend-only):** `src/lib/mock/` (fixtures + dispatcher) ativado por `NEXT_PUBLIC_API_MOCK=1` — serve conteúdo de exemplo **sem** o backend rodando. Quando `=0`/ausente, o client bate na API real.
 - `src/stores/auth.store.ts` — sessão Zustand (`user` + `accessToken`) persistida em `localStorage`.
 - `src/lib/form.ts` — issues do Zod → erros por campo. `src/lib/age.ts` — rótulo de idade.
-- Base da API: `NEXT_PUBLIC_API_URL` (default `http://localhost:4000`).
+- Config: `NEXT_PUBLIC_API_URL` (default `http://localhost:4000`) + `NEXT_PUBLIC_API_MOCK`. Ver `apps/web/.env.example`.
 
 ## Padrões adotados
 
 - **Estilização:** CSS variables + inline styles (sem Tailwind). Componentes interativos são `'use client'`.
 - **Validação:** schemas Zod de `@commet/shared` (fonte única de verdade compartilhada com o backend).
-- **Stub-ready:** como o backend ainda é stub (não emite token / não persiste), as telas que exigem auth
-  degradam com avisos amigáveis e ficam prontas para a API real — sem mudança de código quando ela subir.
+- **Stub-ready:** telas que exigem auth/dados degradam com avisos amigáveis e ficam prontas para a API real — sem mudança de código quando ela subir. Telas com dados usam o mock layer para desenvolver/demonstrar.
 
 ## Dependência do backend (raia do Gustavo)
 
-O fluxo end-to-end de auth e perfis depende das issues `owner:backend` (#5–#8 auth, #10 perfis, #13 db/seed).
-Não tocamos em `apps/api` nem `packages/database`; tratamos o contrato (rotas, envelope, `@commet/shared` e schema Prisma) como **read-only**.
+O fluxo end-to-end de auth, perfis e conteúdo depende das issues `owner:backend` (#5–#8 auth, #10 perfis, #13 db/seed, #14 content). Não tocamos em `apps/api` nem `packages/database`; tratamos o contrato (rotas, envelope, `@commet/shared` e schema Prisma) como **read-only**.
 Doc do backend (mantido pelo Gustavo): [apps/api/README.md](../apps/api/README.md).
 
-## Status (Sprint 1 — Foundation: frontend completo)
+## Status
 
-✅ Design system (#38) · ✅ Auth pages (#9) · ✅ Landing (#12) · ✅ Perfis (#11).
-Próximo (Sprint 2): Home com grid de conteúdo (#15), players (#16/#17), planos+checkout (#19).
+- ✅ **Sprint 1 (Foundation):** Design system (#38), Auth (#9), Landing (#12), Perfis (#11).
+- 🟢 **Sprint 2 (Core, em andamento):** Home/catálogo + mock layer (#15). Próximos: players (#16 vídeo / #17 áudio), planos + checkout (#19).

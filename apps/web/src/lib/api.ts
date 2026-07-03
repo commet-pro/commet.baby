@@ -1,4 +1,6 @@
 import type {
+  AgeGroup,
+  ContentCategory,
   CreateBabyProfileInput,
   ForgotPasswordInput,
   Language,
@@ -6,9 +8,12 @@ import type {
   RegisterInput,
   UpdateBabyProfileInput,
 } from '@commet/shared';
+import { mockDispatch } from '@/lib/mock';
 import { useAuthStore, type AuthUser } from '@/stores/auth.store';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
+/** Frontend-only mock: when '1', the API client serves fixtures without a backend. */
+const USE_MOCK = process.env.NEXT_PUBLIC_API_MOCK === '1';
 
 /* --------------------------- response envelope ---------------------------- */
 // Mirrors the backend contract documented in apps/api/README.md.
@@ -31,7 +36,7 @@ interface ApiFailure {
   error: ApiErrorShape;
 }
 
-type ApiResponse<T> = ApiSuccess<T> | ApiFailure;
+export type ApiResponse<T> = ApiSuccess<T> | ApiFailure;
 
 export class ApiError extends Error {
   code: string;
@@ -55,6 +60,16 @@ export async function apiRequest<T>(
   options: RequestOptions = {},
 ): Promise<ApiSuccess<T>> {
   const { body, auth = false, headers, ...rest } = options;
+  const method = (options.method ?? 'GET').toString().toUpperCase();
+
+  // Mock layer (frontend-only). Handled routes return here; everything else falls through to fetch.
+  if (USE_MOCK) {
+    const mocked = await mockDispatch<T>(method, path, body);
+    if (mocked) {
+      if (!mocked.success) throw new ApiError(mocked.error);
+      return mocked;
+    }
+  }
 
   const finalHeaders: Record<string, string> = {
     'Content-Type': 'application/json',
@@ -138,4 +153,49 @@ export const profilesApi = {
     apiRequest<BabyProfile>(`/api/v1/profiles/${id}`, { method: 'PATCH', body: input, auth: true }),
   remove: (id: string) =>
     apiRequest<null>(`/api/v1/profiles/${id}`, { method: 'DELETE', auth: true }),
+};
+
+/* ------------------------------- content API ------------------------------ */
+// Shape mirrors the Content model in packages/database + docs/API.md.
+
+export interface Content {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  ageGroup: AgeGroup;
+  category: ContentCategory;
+  language: Language;
+  thumbnailUrl?: string;
+  durationSeconds: number;
+  youtubeVideoId?: string;
+  audioUrl?: string;
+  isFree: boolean;
+  featured: boolean;
+  tags: string[];
+}
+
+export interface ContentFilters {
+  ageGroup?: AgeGroup;
+  category?: ContentCategory;
+  language?: Language;
+  search?: string;
+  page?: number;
+  perPage?: number;
+}
+
+function toQuery(params: Record<string, string | number | undefined>): string {
+  const q = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    if (v !== undefined && v !== '') q.set(k, String(v));
+  }
+  const s = q.toString();
+  return s ? `?${s}` : '';
+}
+
+export const contentApi = {
+  list: (filters: ContentFilters = {}) =>
+    apiRequest<Content[]>(`/api/v1/content${toQuery({ ...filters })}`, { auth: true }),
+  featured: () => apiRequest<Content[]>('/api/v1/content/featured', { auth: true }),
+  bySlug: (slug: string) => apiRequest<Content>(`/api/v1/content/${slug}`, { auth: true }),
 };

@@ -38,7 +38,7 @@ export default function LoginPage() {
       const res = await authApi.login(parsed.data);
       if (res.data?.accessToken) {
         setSession({ user: res.data.user, accessToken: res.data.accessToken });
-        router.push('/');
+        router.push('/home');
       } else {
         setNotice(
           'Login enviado, mas a autenticação do backend ainda é um stub (não retorna token). O fluxo está pronto para quando a API real estiver disponível.',
