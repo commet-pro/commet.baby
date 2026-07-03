@@ -1,11 +1,14 @@
 import type {
   AgeGroup,
+  BillingCycle,
+  CheckoutInput,
   ContentCategory,
   CreateBabyProfileInput,
   ForgotPasswordInput,
   Language,
   LoginInput,
   RegisterInput,
+  SubscriptionPlan,
   UpdateBabyProfileInput,
 } from '@commet/shared';
 import { mockDispatch } from '@/lib/mock';
@@ -198,4 +201,33 @@ export const contentApi = {
     apiRequest<Content[]>(`/api/v1/content${toQuery({ ...filters })}`, { auth: true }),
   featured: () => apiRequest<Content[]>('/api/v1/content/featured', { auth: true }),
   bySlug: (slug: string) => apiRequest<Content>(`/api/v1/content/${slug}`, { auth: true }),
+};
+
+/* ------------------------------- billing API ------------------------------ */
+// Mirrors docs/API.md (billing endpoints). Checkout input is validated with
+// CheckoutInputSchema from @commet/shared before calling.
+
+export interface CheckoutSession {
+  checkoutUrl: string;
+}
+
+export interface SubscriptionInfo {
+  plan: SubscriptionPlan;
+  billingCycle: BillingCycle;
+  hasBilingualAddon: boolean;
+  status: string;
+  currentPeriodEnd?: string;
+}
+
+export const billingApi = {
+  checkout: (input: CheckoutInput) =>
+    apiRequest<CheckoutSession>('/api/v1/billing/checkout', {
+      method: 'POST',
+      body: input,
+      auth: true,
+    }),
+  subscription: () =>
+    apiRequest<SubscriptionInfo | null>('/api/v1/billing/subscription', { auth: true }),
+  portal: () =>
+    apiRequest<{ portalUrl: string }>('/api/v1/billing/portal', { method: 'POST', auth: true }),
 };
