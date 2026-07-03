@@ -5,7 +5,7 @@ tags: [frontend, web, nextjs]
 summary: Estado e estrutura do app Next.js (apps/web) — rotas entregues, camada de integração, mock layer e dependência do backend.
 sources: ['apps/web', 'PRs #38/#40/#41/#42 + Sprint 2']
 created: 2026-06-25
-updated: 2026-06-26
+updated: 2026-07-03
 ---
 
 # 🌐 Frontend Web — Commet Baby
@@ -15,14 +15,14 @@ consumindo o contrato da API do backend. Segue o [[Fluxo_de_Trabalho]] e o plano
 
 ## Rotas entregues
 
-| Rota                                    | Arquivo                            | Issue | O quê                                                                  |
-| --------------------------------------- | ---------------------------------- | ----- | ---------------------------------------------------------------------- |
-| `/`                                     | `app/page.tsx`                     | #12   | Landing de conversão/SEO (hero, planos, personagens, selo, CTA)        |
-| `/login` `/register` `/forgot-password` | `app/(auth)/*`                     | #9    | Autenticação (forms + validação Zod)                                   |
-| `/home`                                 | `app/(main)/home/page.tsx`         | #15   | Catálogo de conteúdo (grid + filtros faixa/categoria/busca, destaques) |
-| `/story/[slug]`                         | `app/(main)/story/[slug]/page.tsx` | #15   | Detalhe do conteúdo (player de vídeo/áudio chega em #16/#17)           |
-| `/profiles`                             | `app/(main)/profiles/page.tsx`     | #11   | CRUD de perfis do bebê (Avatar, idade, idioma)                         |
-| `/design-system`                        | `app/design-system/page.tsx`       | —     | Showcase do DS (tokens + componentes)                                  |
+| Rota                                    | Arquivo                            | Issue       | O quê                                                                                                     |
+| --------------------------------------- | ---------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------- |
+| `/`                                     | `app/page.tsx`                     | #12         | Landing de conversão/SEO (hero, planos, personagens, selo, CTA)                                           |
+| `/login` `/register` `/forgot-password` | `app/(auth)/*`                     | #9          | Autenticação (forms + validação Zod)                                                                      |
+| `/home`                                 | `app/(main)/home/page.tsx`         | #15         | Catálogo de conteúdo (grid + filtros faixa/categoria/busca, destaques)                                    |
+| `/story/[slug]`                         | `app/(main)/story/[slug]/page.tsx` | #15 #16 #17 | Detalhe do conteúdo com player: YouTube privacy-enhanced + modo áudio (Media Session), toggle vídeo↔áudio |
+| `/profiles`                             | `app/(main)/profiles/page.tsx`     | #11         | CRUD de perfis do bebê (Avatar, idade, idioma)                                                            |
+| `/design-system`                        | `app/design-system/page.tsx`       | —           | Showcase do DS (tokens + componentes)                                                                     |
 
 As rotas autenticadas vivem no grupo `(main)` com um shell comum (`AppHeader` em `app/(main)/layout.tsx`).
 
@@ -48,4 +48,4 @@ Doc do backend (mantido pelo Gustavo): [apps/api/README.md](../apps/api/README.m
 ## Status
 
 - ✅ **Sprint 1 (Foundation):** Design system (#38), Auth (#9), Landing (#12), Perfis (#11).
-- 🟢 **Sprint 2 (Core, em andamento):** Home/catálogo + mock layer (#15). Próximos: players (#16 vídeo / #17 áudio), planos + checkout (#19).
+- 🟢 **Sprint 2 (Core, em andamento):** Home/catálogo + mock layer (#15) ✅ · players vídeo/áudio (#16/#17) ✅. Próximo: planos + checkout (#19).

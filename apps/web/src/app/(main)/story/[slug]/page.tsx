@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ApiError, contentApi, type Content } from '@/lib/api';
 import { Badge, Card } from '@/components/ui';
+import { StoryPlayer } from '@/components/player/StoryPlayer';
 
 export default function StoryDetailPage({ params }: { params: { slug: string } }) {
   const [content, setContent] = React.useState<Content | null>(null);
@@ -56,22 +57,8 @@ export default function StoryDetailPage({ params }: { params: { slug: string } }
         </Card>
       ) : (
         <article style={{ marginTop: 'var(--space-5)' }}>
-          {/* Placeholder do player — vídeo (#16) e áudio (#17) chegam nas próximas fatias */}
-          <div
-            style={{
-              aspectRatio: '16 / 9',
-              background: 'var(--surface-sunk)',
-              border: '1.5px solid var(--border-card)',
-              borderRadius: 'var(--radius-lg)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--text-muted)',
-              fontSize: 'var(--fs-sm)',
-              marginBottom: 'var(--space-5)',
-            }}
-          >
-            ▶ Player chega nas próximas fatias (#16 vídeo / #17 áudio)
+          <div style={{ marginBottom: 'var(--space-5)' }}>
+            <StoryPlayer content={content} />
           </div>
 
           <h1 style={{ margin: '0 0 var(--space-2)' }}>{content.title}</h1>
